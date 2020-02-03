@@ -18,7 +18,7 @@ Você pode acessar um protótipo no link abaixo:
 
 https://www.figma.com/file/XfGoCuEf4U9ZSipFnZs3u7/App-Receitas?node-id=0%3A1
 
-Lembre-se de escrever testes unitários e sinta-se livre para alterar a UI, só respeito os atributos `data-testid`, eles serão usados na correção do exercício.
+Lembre-se de escrever testes unitários e sinta-se livre para alterar a UI, só respeite os atributos `data-testid`, eles serão usados na correção do exercício.
 
 Você pode ler mais sobre atributos para testes [nesse link](https://www.eduardopedroso.com.br/?p=494)
 
@@ -32,7 +32,7 @@ Você pode ler mais sobre atributos para testes [nesse link](https://www.eduardo
 
 ## Desenvolvimento e testes
 
-Este repositório já contem um _template_ com um App React criado, configurado e com os testes automatizados que fazem parte da correção. Após clonar o projeto e instalar as dependências, você precisará montar toda a configuração do Redux.
+Este repositório já contem um _template_ com um App React criado, configurado e com os testes automatizados que fazem parte da correção.
 
 Para o projeto ser validado, todos os [testes E2E](https://www.guru99.com/end-to-end-testing.html) devem passar. É possível testar isso local rodando `npm run cy`. Esse comando roda a suite de testes do [Cypress](https://www.cypress.io/how-it-works/) que valida se o fluxo geral e os requisitos funcionais estão funcionando como deveriam.
 
@@ -207,7 +207,7 @@ Os ingredientes seguem uma ordem lógica onde o nome dele (`strIngredient1`) e a
 
 ⚠️ Lembre-se que o seu projeto só será avaliado se estiver passando pelos _checks_ do **CodeClimate**, e tiver a **cobertura de testes unitários mínima de 90%**.
 
-Nesse projeto, a pessoa que estive utilizando o app pode procurar uma receita especifica, explorar receitas baseado em diferentes critérios, favoritar e fazer as receitas entre outras funcionalidades.
+Nesse projeto, a pessoa que estiver utilizando o app pode procurar uma receita especifica, explorar receitas baseado em diferentes critérios, favoritar e fazer as receitas entre outras funcionalidades.
 
 As telas sofrem variações dependendo do tipo da receita (se é comida ou bebida, no caso).
 
@@ -483,9 +483,9 @@ No `localStorage` do navegador:
 ### ANTES DE COMEÇAR A DESENVOLVER:
 
 1. Clone o repositório
-  * `git clone git@github.com:tryber/sd-01-week19-recipes-app.git`.
+  * `git clone git@github.com:tryber/sd-01-week19-recipes-app-2.git`.
   * Entre na pasta do repositório que você acabou de clonar:
-    * `cd sd-01-week19-recipes-app`
+    * `cd sd-01-week19-recipes-app-2`
 
 2. Instale as dependências, inicialize o projeto e rode os testes
   * Instale as dependências:
