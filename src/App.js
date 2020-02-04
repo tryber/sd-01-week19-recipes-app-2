@@ -4,15 +4,15 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import Login from '../pages/Login';
+import Login from './pages/Login';
 
 function App() {
   return (
-    <Route>
+    <Router>
       <Switch>
-        <Router path="/login" component={<Login />} />
+        <Route exact path="/" component={Login} />
       </Switch>
-    </Route>
+    </Router>
   );
 }
 
