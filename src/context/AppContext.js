@@ -1,22 +1,31 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-const AppContext = React.createContext();
+export const AppContext = React.createContext();
 
-const AppProvider = (props) => {
+export default function AppProvider(props) {
+  const [displayUserIcon, setDisplayUserIcon] = useState(true);
+  const [displaySearchIcon, setDisplaySearchIcon] = useState(true);
+  const [displaySearchBar, setDisplaySearchBar] = useState(false);
+  const [title, setTitle] = useState('Header');
+  const displaySearchBarToggle = () => setDisplaySearchBar(!displaySearchBar);
+
   const context = {
-    status: {
-      user: 'enabled',
-      search: 'enabled',
-    },
+    displayUserIcon,
+    displaySearchIcon,
+    displaySearchBar,
+    title,
+    displaySearchBarToggle,
+    setDisplayUserIcon,
+    setDisplaySearchIcon,
+    setTitle,
   };
-  const [useContext, setContext] = useState(context);
+
   const { children } = props;
 
   return (
-    <AppContext.Provider value={{ useContext }}>
+    <AppContext.Provider value={{ context }}>
       {children}
     </AppContext.Provider>
   );
-};
-
-export { AppContext, AppProvider };
+}
