@@ -4,7 +4,13 @@ import '../style/Login.css';
 
 function handleSubmit(event, setRedirect) {
   event.preventDefault();
+  localStorage.setItem('meals-token', '1');
+  localStorage.setItem('cocktails-token', '1');
   setRedirect(true)
+}
+
+function saveUserEmail(value) {
+  localStorage.setItem('user', JSON.stringify({email: value}));
 }
 
 function Login() {
@@ -19,6 +25,7 @@ function Login() {
           required
           type="email"
           placeholder="Digite seu Email"
+          onChange={(e) => saveUserEmail(e.target.value)}
         />
         <input
           className="form-input"
