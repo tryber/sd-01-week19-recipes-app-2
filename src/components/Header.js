@@ -18,15 +18,15 @@ export default function Header(props) {
   return (
     <Router>
       <div className="header-container">
-        {displayUserIcon ? (
+        {displayUserIcon && (
           <Link to="/profile">
             <UserIcon />
           </Link>
-        ) : undefined}
+        )}
         <span data-testid="page-title" className="header-title">{title}</span>
-        {displaySearchIcon ? <SearchIcon onClick={displaySearchBarToggle} /> : undefined}
+        {displaySearchIcon && <SearchIcon onClick={displaySearchBarToggle} />}
       </div>
-      {displaySearchBar ? <SearchBar /> : undefined }
+      {displaySearchBar && <SearchBar />}
     </Router>
   );
 }
