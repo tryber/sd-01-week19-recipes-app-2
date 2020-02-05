@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 export const AppContext = React.createContext();
 
 export default function AppProvider(props) {
+  // header States
   const [displayUserIcon, setDisplayUserIcon] = useState(true);
   const [displaySearchIcon, setDisplaySearchIcon] = useState(true);
   const [displaySearchBar, setDisplaySearchBar] = useState(false);
