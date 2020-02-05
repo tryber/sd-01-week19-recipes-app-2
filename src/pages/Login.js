@@ -6,16 +6,16 @@ function handleSubmit(event, setRedirect) {
   event.preventDefault();
   localStorage.setItem('meals-token', '1');
   localStorage.setItem('cocktails-token', '1');
-  setRedirect(true)
+  setRedirect(true);
 }
 
 function saveUserEmail(value) {
-  localStorage.setItem('user', JSON.stringify({email: value}));
+  localStorage.setItem('user', JSON.stringify({ email: value }));
 }
 
 function Login() {
   const [redirect, setRedirect] = useState(false);
-  if (redirect) return <Redirect to="/recipes" />
+  if (redirect) return <Redirect to="/recipes" />;
   return (
     <div className="login">
       <h1>Login</h1>
