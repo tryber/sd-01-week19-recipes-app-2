@@ -7,7 +7,6 @@ import { AppContext, AppProvider } from '../context/AppContext';
 import '../style/Header.css';
 
 export default function Header(props) {
-
   const [displayUserIcon, setDisplayUserIcon] = useState(true);
   const [displaySearchIcon, setDisplaySearchIcon] = useState(true);
   const [displaySearchBar, setDisplaySearchBar] = useState(false);
