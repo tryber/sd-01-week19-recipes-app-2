@@ -9,9 +9,9 @@ function handleSubmit(event, setRedirect) {
   setRedirect(true);
 }
 
-function formValidate(loginForm, setInvalid) {
-  if (loginForm.checkValidity() === true) setInvalid(false);
-  else setInvalid(true);
+function formValidate(loginForm, setValidation) {
+  if (loginForm.checkValidity() === true) setValidation(false);
+  else setValidation(true);
 }
 
 function saveUserEmail(value) {
@@ -19,11 +19,11 @@ function saveUserEmail(value) {
 }
 
 function Login() {
-  const [redirect, setRedirect] = useState(false);
+  const [shoudRedirect, setRedirect] = useState(false);
   const [loginForm, setForm] = useState({});
-  const [invalid, setInvalid] = useState(true);
+  const [isInvalid, setValidation] = useState(true);
 
-  if (redirect) return <Redirect to="/recipes" />;
+  if (shoudRedirect) return <Redirect to="/recipes" />;
   return (
     <div className="login">
       <h1>Login</h1>
@@ -39,7 +39,7 @@ function Login() {
           placeholder="Digite seu Email"
           onChange={(e) => {
             saveUserEmail(e.target.value);
-            formValidate(loginForm, setInvalid);
+            formValidate(loginForm, setValidation);
           }}
         />
         <input
@@ -48,9 +48,9 @@ function Login() {
           minLength="6"
           type="password"
           placeholder="Digite sua Senha"
-          onChange={() => formValidate(loginForm, setInvalid)}
+          onChange={() => formValidate(loginForm, setValidation)}
         />
-        <input className="form-submit" type="submit" value="Entrar" disabled={invalid} />
+        <input className="form-submit" type="submit" value="Entrar" disabled={isInvalid} />
       </form>
     </div>
   );
