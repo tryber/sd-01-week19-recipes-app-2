@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import UserIcon from './UserIcon';
 import SearchIcon from './SearchIcon';
