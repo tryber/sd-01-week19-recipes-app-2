@@ -14,21 +14,21 @@ function formValidate(loginForm, setValidation) {
   else setValidation(true);
 }
 
-function saveUserEmail(value) {
+function saveUserEmail(value, loginForm, setValidation) {
   localStorage.setItem('user', JSON.stringify({ email: value }));
+  formValidate(loginForm, setValidation);
 }
 
 function Login() {
   const [shoudRedirect, setRedirect] = useState(false);
   const [loginForm, setForm] = useState({});
   const [isInvalid, setValidation] = useState(true);
-
   if (shoudRedirect) return <Redirect to="/recipes" />;
   return (
     <div className="login">
       <h1>Login</h1>
       <form
-        ref={form => setForm(form)}
+        ref={(form) => setForm(form)}
         className="login-form"
         onSubmit={(event) => handleSubmit(event, setRedirect)}
       >
@@ -37,10 +37,7 @@ function Login() {
           required
           type="email"
           placeholder="Digite seu Email"
-          onChange={(e) => {
-            saveUserEmail(e.target.value);
-            formValidate(loginForm, setValidation);
-          }}
+          onChange={(e) => saveUserEmail(e.target.value, loginForm, setValidation)}
         />
         <input
           className="form-input"
