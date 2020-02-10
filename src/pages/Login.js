@@ -9,23 +9,38 @@ function handleSubmit(event, setRedirect) {
   setRedirect(true);
 }
 
+function formValidate(loginForm, setInvalid) {
+  if (loginForm.checkValidity() === true) setInvalid(false);
+  else setInvalid(true);
+}
+
 function saveUserEmail(value) {
   localStorage.setItem('user', JSON.stringify({ email: value }));
 }
 
 function Login() {
   const [redirect, setRedirect] = useState(false);
+  const [loginForm, setForm] = useState({});
+  const [invalid, setInvalid] = useState(true);
+
   if (redirect) return <Redirect to="/recipes" />;
   return (
     <div className="login">
       <h1>Login</h1>
-      <form onSubmit={(event) => handleSubmit(event, setRedirect)} className="login-content">
+      <form
+        ref={form => setForm(form)}
+        className="login-form"
+        onSubmit={(event) => handleSubmit(event, setRedirect)}
+      >
         <input
           className="form-input"
           required
           type="email"
           placeholder="Digite seu Email"
-          onChange={(e) => saveUserEmail(e.target.value)}
+          onChange={(e) => {
+            saveUserEmail(e.target.value);
+            formValidate(loginForm, setInvalid);
+          }}
         />
         <input
           className="form-input"
@@ -33,8 +48,9 @@ function Login() {
           minLength="6"
           type="password"
           placeholder="Digite sua Senha"
+          onChange={() => formValidate(loginForm, setInvalid)}
         />
-        <input className="form-submit" type="submit" value="Entrar" />
+        <input className="form-submit" type="submit" value="Entrar" disabled={invalid} />
       </form>
     </div>
   );
