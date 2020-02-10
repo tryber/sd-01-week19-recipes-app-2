@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export const AppContext = createContext();
 
-export default function AppProvider({ children }) {
+export default function AppProvider(props) {
   // header States
   const [displayUserIcon, setDisplayUserIcon] = useState(true);
   const [displaySearchIcon, setDisplaySearchIcon] = useState(true);
@@ -21,7 +21,7 @@ export default function AppProvider({ children }) {
     setDisplaySearchIcon,
     setTitle,
   };
-
+  const { children } = props;
   return (
     <AppContext.Provider value={{ context }}>
       {children}
@@ -29,6 +29,6 @@ export default function AppProvider({ children }) {
   );
 }
 
-Provider.propTypes = {
-    children: PropTypes.node.isRequired,
+AppContext.propTypes = {
+  children: PropTypes.node.isRequired,
 };
