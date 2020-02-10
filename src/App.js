@@ -5,7 +5,7 @@ import AppProvider from './context/AppContext';
 function App() {
   return (
     <AppProvider>
-      <Header />
+      {/* <Header /> */}
     </AppProvider>
   );
 }
