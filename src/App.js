@@ -1,10 +1,12 @@
 import React from 'react';
+import AppProvider from './context/AppContext';
 import './App.css';
 
 function App() {
   return (
-    <div id="meals">
-    </div>
+    <AppProvider>
+        <Header />
+    </AppProvider>
   );
 }
 
