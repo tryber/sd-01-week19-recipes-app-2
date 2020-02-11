@@ -1,14 +1,21 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 import AppProvider from './context/AppContext';
-import Header from './components/Header';
+import Login from './pages/Login';
 import './App.css';
 
 function App() {
   return (
     <AppProvider>
-      <div id="meals">
-        <Header />
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Login} />
+        </Switch>
+      </Router>
     </AppProvider>
   );
 }

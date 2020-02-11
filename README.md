@@ -211,234 +211,241 @@ Nesse projeto, a pessoa que estiver utilizando o app pode procurar uma receita e
 
 As telas sofrem variações dependendo do tipo da receita (se é comida ou bebida, no caso).
 
+1. A cobertura de testes unitários deve ser de no mínimo 90%;
 
-### Header
-- Todos os elementos devem respeitar os atributos descritos no protótipo;
+#### Header
 
-   - Deve apresentar um ícone para a tela de perfil e um para a busca (caso exista no protótipo).
+2. Todos os elementos devem respeitar os atributos descritos no protótipo para o header;
 
-   - Ao clicar no botão de perfil, a rota deve mudar para a tela de perfil.
+3. Deve apresentar um ícone para a tela de perfil e um para a busca (caso exista no protótipo);
 
-   - Ao clicar no botão de busca, a barra de busca deve aparecer.
+4. Ao clicar no botão de perfil, a rota deve mudar para a tela de perfil;
+
+5. Ao clicar no botão de busca, a barra de busca deve aparecer; O mesmo serve para escondê-la;
 
 ### Barra de busca - Header
 
-- A barra de busca deve aparecer quando a pessoa clicar no ícone de lupa no header. O mesmo serve para escondê-la.
+6. Todos os elementos devem respeitar os atributos descritos no protótipo para a barra de busca;
 
-- A busca deve ocorrer 600 milissegundos após a última iteração com o input. (Pesquise por `debounce`)
+7. A barra de busca deve possuir 3 _radio buttons_: `Ingrediente`, `Nome` e `Primeira letra`. Eles devem mudar a forma como serão filtradas as receitas.  Os _endpoints_ da API que você deve usar podem ser consultados [aqui para a API de comidas](https://www.themealdb.com/api.php) e [aqui para a API de bebidas](https://www.thecocktaildb.com/api.php). _Exemplo_: Selecionar `Ingrediente` e buscar por `chicken`.
+`https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken`.
 
-- A busca deve ocorrer na API de comidas caso a pessoa esteja na página de comidas e na de bebidas caso esteja na de bebidas.
+8. A busca deve ocorrer 600 milissegundos após a última iteração com o input. (Pesquise por debounce);
 
-- Caso apenas uma receita seja encontrada, a rota deve mudar para a tela de detalhes da receita com o ID da mesma na URL. Exemplo: `receitasbr.com/receita/{id-da-receita}`
+9. A busca deve ocorrer na API de comidas caso a pessoa esteja na página de comidas e na de bebidas caso esteja na de bebidas;
 
-- Caso mais de uma receita seja encontrada, mostrar as receitas em cards da mesma maneira que a tela principal de receitas.
+10. Caso apenas uma receita seja encontrada, a rota deve mudar para a tela de detalhes da receita com o ID da mesma na URL. Exemplo: `receitasbr.com/receita/{id-da-receita}`;
 
-- Caso nenhuma receita seja encontrada, uma mensagem deve ser exibida.
+11. Caso mais de uma receita seja encontrada, mostrar as receitas em cards da mesma maneira que a tela principal de receitas;
 
-### Menu inferior
-- Todos os elementos devem respeitar os atributos descritos no protótipo;
+12. Caso nenhuma receita seja encontrada, uma mensagem deve ser exibida;
 
-- Deve apresentar 3 ícones, um para comidas, um para bebidas e outro para exploração.
+#### Menu inferior
 
-- Ao clicar no ícone de comidas, a pessoa deve ser redirecionada para uma lista de comidas.
+13. Todos os elementos devem respeitar os atributos descritos no protótipo para o menu inferior;
 
-- Ao clicar no ícone de bebidas, a pessoa deve ser redirecionada para uma lista de cocktails.
+14. Deve apresentar 3 ícones, um para comidas, um para bebidas e outro para exploração;
 
-- Ao clicar no ícone de exploração, a rota deve mudar para a tela de exploração.
+15. Ao clicar no ícone de comidas, a pessoa deve ser redirecionada para uma lista de comidas;
 
-- Este menu deve estar oculto dependendo da tela do protótipo.
+16. Ao clicar no ícone de bebidas, a pessoa deve ser redirecionada para uma lista de cocktails;
 
-### Tela de login:
+17. Ao clicar no ícone de exploração, a rota deve mudar para a tela de exploração;
 
-   - Todos os elementos devem respeitar os atributos descritos no protótipo;
+#### Tela de login
 
-   - A pessoa deve conseguir escrever seu email no input de email;
+18. Todos os elementos devem respeitar os atributos descritos no protótipo para a tela de login;
 
-   - A pessoa deve conseguir escrever sua senha no input de senha;
+19. A pessoa deve conseguir escrever seu email no input de email;
 
-   - O formulário só fica válido após um email válido e uma senha de mais de 6 caracteres serem preenchidos.
+20. A pessoa deve conseguir escrever sua senha no input de senha;
 
-   - Caso o formulário esteja inválido, o botão de submeter deve estar desativado. Caso contrário, deve estar ativado.
+21. O formulário só fica válido após um email válido e uma senha de mais de 6 caracteres serem preenchidos;
 
-   - Após a submissão, 2 tokens devem ser salvos em `localStorage` identificados pelas chaves `meals-token` e `cocktails-token` (o token de teste é sempre "1")
+22. Caso o formulário esteja inválido, o botão de submeter deve estar desativado. Caso contrário, deve estar ativado;
 
-   - Após a submissão, o e-mail do usuário deve ser salvo em `localStorage` no formato `user: {email: email-do-usuário}`
+23. Após a submissão, 2 tokens devem ser salvos em `localStorage` identificados pelas chaves `meals-token` e `cocktails-token` (o token de teste é sempre "1");
 
-### Tela principal de Receitas:
+24. Após a submissão, o e-mail do usuário deve ser salvo em `localStorage` no formato `user: {email: email-do-usuário}`;
 
-   - Todos os elementos devem respeitar os atributos descritos no protótipo;
+25. Após a submissão e validação com sucesso do login, o usuário deve ser redirecionado para a tela de listagem de receitas _("Android  - 1" no protótipo )_.
 
-   - Devem ser carregadas 12 receitas aleatórias, uma em cada card.
+#### Tela principal de Receitas
 
-   - A pessoa deve conseguir filtrar por categoria utilizando botões. Cada um com o atributo prefixado: `data-testid=${categoryName}-category-filter`
+26. Todos os elementos devem respeitar os atributos descritos no protótipo para a tela de receitas;
 
-   - Ao clicar no filtro de categoria, todas as receitas devem mudar para os dados filtrados da API. Um dos botões deve trazer todos os dados sem filtros. Esses campos virão da API que lista categorias `https://www.themealdb.com/api/json/v1/1/list.php?c=list`.
+27. Devem ser carregadas 12 receitas aleatórias, uma em cada card;
 
-   - Mostrar apenas as 5 primeiras categorias retornadas da API.
+28. A pessoa deve conseguir filtrar por categoria utilizando botões. Cada um com o atributo prefixado: `data-testid=${categoryName}-category-filter`;
 
-   - No filtro de categorias deve existir a opção de filtrar por Todas as categorias.
+29. Ao clicar no filtro de categoria, todas as receitas devem mudar para os dados filtrados da API. Caso o filtro seja selecionado de novo, o app deve retornar as receitas sem nenhum filtro _(como se fosse um toggle)_. As categorias disponíveis devem ser obtidas através da API de [comidas](https://www.themealdb.com/api.php) ou [bebidas](https://www.thecocktaildb.com/api.php).
 
-   - As receitas que serão carregadas dependem de qual ícone a pessoa clicou: comidas acessa a API de comidas e bebidas acessa a API de bebidas.
+30. Apenas um filtro de categoria deve poder ser selecionado por vez.
 
-   - Se a API utilizada for a de comidas, a URl deve ser `/comidas`, caso seja bebidas `/bebidas`;
+31. Mostrar apenas as 5 primeiras categorias retornadas da API.
 
-   - O título da página mostrado vai depender também de qual ícone a pessoa clicou; (Comidas ou Bebidas)
+32. No filtro de categorias deve existir a opção de filtrar por Todas as categorias.
 
-   - Cada receita que voltar da API deve virar um card dentro de uma Grid.
+33. As receitas que serão carregadas dependem de qual ícone a pessoa clicou: comidas acessa a API de comidas e bebidas acessa a API de bebidas.
 
-   - O Card de receita deve conter uma foto (`strMealThumb` ou `strDrinkThumb`), o nome (`strMeal` ou `strDrink`) e a categoria da receita (`strCategory`).
+34. Se a API utilizada for a de comidas, a URl deve ser `/comidas`, caso seja bebidas `/bebidas`;
 
-   - Ao clicar no card, a rota deve mudar para a tela de detalhes da receita com o ID da mesma na URL, além de dizer se a pessoa veio da tela de comidas ou de bebidas.
-    Exemplo: `/receitas/comida/{id-da-receita}`
+35. O título da página mostrado vai depender também de qual ícone a pessoa clicou; (Comidas ou Bebidas)
 
-   - O Header e o menu inferior devem estar presentes.
+36. Cada receita que voltar da API deve virar um card dentro de uma Grid.
 
-### Tela de detalhes de uma receita:
-- Todos os elementos devem respeitar os atributos descritos no protótipo;
+37. O Card de receita deve conter uma foto (`strMealThumb` ou `strDrinkThumb`), o nome (`strMeal` ou `strDrink`) e a categoria da receita (`strCategory`).
 
-- Uma request para a API deve ser feita passando o `id` da receita que deve estar disponível nos parâmetros da URL.
+38. Ao clicar no card, a rota deve mudar para a tela de detalhes da receita com o ID da mesma na URL, além de dizer se a pessoa veio da tela de comidas ou de bebidas.
+Exemplo: `/receitas/comida/{id-da-receita}`
 
-- Essa tela deve contar uma imagem da receita, o titulo, a categoria (ou se é ou não alcoólico), uma lista de ingredientes seguidos pelas quantidades instruções, um video do youtube "embedado" e recomendações.
+39. O Header e o menu inferior devem estar presentes.
 
-- As recomendações para receitas de comida deverão ser bebidas e vice versa. Dica: Explore os ingredientes.
+#### Tela de detalhes de uma receita
 
-- Deverão ser mostrados 6 cards de recomendação, onde apenas 2 são mostrados e o scroll é horizontal, similar a um `carousel`;
+40. Todos os elementos devem respeitar os atributos descritos no protótipo para a tela de detalhes de uma receita;
 
-- Um botão de "Iniciar Receita" deve ficar fixo na parte de baixo da tela o tempo todo.
+41. Uma request para a API deve ser feita passando o `id` da receita que deve estar disponível nos parâmetros da URL.
 
-- Caso a receita ja tenha sido feita, o botão deve sumir;
+42. Essa tela deve conter uma imagem da receita, o titulo, a categoria (ou se é ou não alcoólico), uma lista de ingredientes seguidos pelas quantidades instruções, um video do youtube "embedado" e recomendações.
 
-- Caso a receita tenha sido iniciada mas não finalizada, o texto do botão deve ser "Continuar receita";
+43. As recomendações para receitas de comida deverão ser bebidas e vice versa. Dica: Explore os ingredientes.
 
-- Quando "Iniciar Receita" for clicado, a rota deve mudar para a tela de realização de receita.
+44. Deverão ser mostrados 6 cards de recomendação, onde apenas 2 são mostrados e o scroll é horizontal, similar a um `carousel`;
 
-- Um botão de compartilhar e um de favoritar a receita devem estar disponíveis.
+45. Um botão de "Iniciar Receita" deve ficar fixo na parte de baixo da tela o tempo todo.
 
-- Ao clicar no botão de compartilhar, o link da receita deve ser copiado para o clipboard e uma mensagem avisando que o link foi copiado deve aparecer.
+46. Caso a receita ja tenha sido feita, o botão deve sumir;
 
-- Caso a receita ja esteja _favoritada_, o ícone do coração deve vir preenchido.
+47. Caso a receita tenha sido iniciada mas não finalizada, o texto do botão deve ser "Continuar receita";
 
-- Caso a receita não esteja _favoritada_, o ícone do coração deve vir _"despreenchido"_.
+48. Quando "Iniciar Receita" for clicado, a rota deve mudar para a tela de realização de receita.
 
-- Ao clicar no botão de favoritar, o ícone do coração deve mudar de seu estado atual, caso esteja preenchido deve mudar para _"despreenchido"_ e vice versa.
+49. Um botão de compartilhar e um de favoritar a receita devem estar disponíveis.
 
-- As receitas favoritas devem ser salvas em `localStorage` no formato: `favoriteRecipes: [{id, category, image}]`
+50. Ao clicar no botão de compartilhar, o link da receita deve ser copiado para o clipboard e uma mensagem avisando que o link foi copiado deve aparecer.
 
-### Tela de receita em processo
+51. O ícone do coração (favorito) deve vir preenchido caso a receita esteja favoritada, e _"despreenchido"_ caso contrário;
 
-- Todos os elementos devem respeitar os atributos descritos no protótipo;
+52. Ao clicar no botão de favoritar, o ícone do coração deve mudar de seu estado atual, caso esteja preenchido deve mudar para _"despreenchido"_ e vice versa.
 
-- Essa tela deve contar uma imagem da receita, o titulo, a categoria (ou se é ou não alcoólico), uma lista de ingredientes seguidos pelas quantidades
-instruções;
+53. As receitas favoritas devem ser salvas em `localStorage` no formato: `favoriteRecipes: [{id, category, image}]`
 
-- A lista de ingredientes deve conter um checkbox para cada um dos items;
+#### Tela de receita em processo
 
-- Ao clicar no checkbox de um ingrediente, o nome dele deve ser "riscado" da lista.
+54. Essa tela deve contar uma imagem da receita, o titulo, a categoria (ou se é ou não alcoólico), uma lista de ingredientes seguidos pelas quantidades e instruções;
 
-- O estado do progresso deve ser mantido caso a pessoa atualize a pagina ou volte para a mesma receita.
+55. A lista de ingredientes deve conter um checkbox para cada um dos items;
 
-- A mesma lógica de favoritar e compartilhar da `Tela de detalhes` se aplica aqui.
+56. Ao clicar no checkbox de um ingrediente, o nome dele deve ser "riscado" da lista.
 
-- O botão de finalizar receita só pode estar habilitado quando todos os ingredientes estiverem _"checkados"_.
+57. O estado do progresso deve ser mantido caso a pessoa atualize a pagina ou volte para a mesma receita.
 
-- Após clicar no botão "Finalizar receita", a rota deve mudar para a página de receitas realizadas.
+58. A mesma lógica de favoritar e compartilhar da `Tela de detalhes` se aplica aqui.
 
-### Tela de receitas feitas
+59. O botão de finalizar receita só pode estar habilitado quando todos os ingredientes estiverem _"checkados"_.
 
-- Todos os elementos devem respeitar os atributos descritos no protótipo;
+60. Após clicar no botão "Finalizar receita", a rota deve mudar para a página de receitas realizadas.
 
-- A tela deve conter cards horizontais, um para cada receita feita;
+#### Tela de receitas feitas
 
-- Caso a receita do card seja uma comida: a foto da receita, o nome, a categoria, a area, a data em que a pessoa fez a receita, as 2 primeiras tags retornadas pela API e um botão de compartilhar.
+61. Todos os elementos devem respeitar os atributos descritos no protótipo para a tela de receitas feitas;
 
-- Caso a receita do card seja uma bebida: a foto da receita, o nome, se é alcoólica, a data em que a pessoa fez a receita e um botão de compartilhar.
+62. A tela deve conter cards horizontais, um para cada receita feita;
 
-- O Botão de compartilhar deve copiar a URL da tela de detalhes daquela receita para o clipboard.
+63. Caso a receita do card seja uma comida: a foto da receita, o nome, a categoria, a area, a data em que a pessoa fez a receita, as 2 primeiras tags retornadas pela API e um botão de compartilhar.
 
-- Devem existir 2 botões que filtram as receitas por comida ou bebida e um terceiro que remove todos os filtros.
+64. Caso a receita do card seja uma bebida: a foto da receita, o nome, se é alcoólica, a data em que a pessoa fez a receita e um botão de compartilhar.
 
-- Ao clicar na foto ou no titulo, a rota deve mudar para a tela de detalhes daquela receita;
+65. O Botão de compartilhar deve copiar a URL da tela de detalhes daquela receita para o clipboard.
 
-- A rota dessa página deve ser: `/receitas-feitas`
+66. Devem existir 2 botões que filtram as receitas por comida ou bebida e um terceiro que remove todos os filtros.
 
-### Tela de receitas favorita
+67. Ao clicar na foto ou no titulo, a rota deve mudar para a tela de detalhes daquela receita;
 
-- Todos os elementos devem respeitar os atributos descritos no protótipo;
+68. A rota dessa página deve ser: `/receitas-feitas`
 
-- A tela deve conter cards horizontais, um para cada receita feita;
+#### Tela de receitas favoritas
 
-- Caso a receita do card seja uma comida: a foto da receita, o nome, a categoria, a area, um botão de compartilhar e um de _"desfavoritar"_;
+69. Todos os elementos devem respeitar os atributos descritos no protótipo para a tela de receitas favoritas;
 
-- Caso a receita do card seja uma bebida: a foto da receita, o nome, se é alcoólica, um botão de compartilhar e um de _"desfavoritar"_;
+70. A tela deve conter cards horizontais, um para cada receita feita;
 
-- O botão de compartilhar deve copiar a URL da tela de detalhes daquela receita para o clipboard.
+71. Caso a receita do card seja uma comida: a foto da receita, o nome, a categoria, a area, um botão de compartilhar e um de _"desfavoritar"_;
 
-- O botão de _"desfavoritar"_ deve remover a receita da lista.
+72. Caso a receita do card seja uma bebida: a foto da receita, o nome, se é alcoólica, um botão de compartilhar e um de _"desfavoritar"_;
 
-- Devem existir 2 botões que filtram as receitas por comida ou bebida e um terceiro que remove todos os filtros.
+73. O botão de compartilhar deve copiar a URL da tela de detalhes daquela receita para o clipboard.
 
-- Ao clicar na foto ou no titulo, a rota deve mudar para a tela de detalhes daquela receita;
+74. O botão de _"desfavoritar"_ deve remover a receita da lista.
 
-- A rota dessa página deve ser: `/receitas-favoritas`
+75. Devem existir 2 botões que filtram as receitas por comida ou bebida e um terceiro que remove todos os filtros.
 
-### Tela de explorar
+76. Ao clicar na foto ou no titulo, a rota deve mudar para a tela de detalhes daquela receita.
 
-- Todos os elementos devem respeitar os atributos descritos no protótipo;
+77. A rota dessa página deve ser: `/receitas-favoritas`.
 
-- A tela deve ter dois botões: um para explorar comidas e o outro para explorar bebidas;
+#### Tela de explorar
 
-- Ao clicar em um dos botões, a rota deve mudar para a pagina de explorar comidas ou de explorar bebidas.
+78. Todos os elementos devem respeitar os atributos descritos no protótipo para a tela de explorar.
 
-### Tela de explorar bebidas ou comidas
+79. A tela deve ter dois botões: um para explorar comidas e o outro para explorar bebidas.
 
-- Todos os elementos devem respeitar os atributos descritos no protótipo;
+80. Ao clicar em um dos botões, a rota deve mudar para a pagina de explorar comidas ou de explorar bebidas.
 
-- Caso na tela de explorar a pessoa tenha clicado em comidas, o titulo deve mostrar "Explora - Comidas". O mesmo para bebidas.
+#### Tela de explorar bebidas ou comidas
 
-- A tela deve ter três botões: um para explorar por ingrediente, um para explorar por local de origem e um para pegar uma receita aleatória.
+81. Todos os elementos devem respeitar os atributos descritos no protótipo para a tela de explorar bebidas ou comidas.
 
-- Ao clicar em "Por ingredientes", a rota deve mudar para tela de explorar ingredientes;
+82. Caso na tela de explorar a pessoa tenha clicado em comidas, o titulo deve mostrar "Explora - Comidas". O mesmo para bebidas.
 
-- Ao clicar em "Por local de origem", a rota deve mudar para tela de explorar por local de origem;
+83. A tela deve ter três botões: um para explorar por ingrediente, um para explorar por local de origem e um para pegar uma receita aleatória. Obs: se a opção escolhida for explorar bebidas, o botão para explorar por local de origem não deve estar disponível.
 
-- Ao clicar em "Me surpreenda", a rota deve mudar para os detalhes de uma receita aleatória vinda da API;
+84. Ao clicar em "Por ingredientes", a rota deve mudar para tela de explorar ingredientes.
 
-- A rota deve ser `/explorar/comidas` ou `/explorar/bebidas`, dependendo de qual é a origem;
+85. Ao clicar em "Por local de origem", a rota deve mudar para tela de explorar por local de origem.
 
-### Tela de explorar ingredientes
-- Todos os elementos devem respeitar os atributos descritos no protótipo;
+86. Ao clicar em "Me surpreenda", a rota deve mudar para os detalhes de uma receita aleatória vinda da API.
 
-- A tela deve ter cards que contem: O nome do ingrediente e uma foto.
+87. A rota deve ser `/explorar/comidas` ou `/explorar/bebidas`, dependendo de qual é a origem.
 
-- Ao clicar no card do ingrediente, a rota deve mudar para tela principal de receitas, mas mostrando apenas as receitas que contem o ingrediente escolhido.
+#### Tela de explorar ingredientes
 
-- As receitas mostradas devem representar o tipo escolhido antes na tela de explorar: se é comida ou bebida.
+88. Todos os elementos devem respeitar os atributos descritos no protótipo para a tela de explorar ingredientes.
 
-- A rota deve ser `/explorar/comidas/ingredientes` ou `/explorar/bebidas/ingredientes`
+89. A tela deve ter cards que contem: O nome do ingrediente e uma foto.
 
-### Tela de explorar por local de origem/area
+90. Ao clicar no card do ingrediente, a rota deve mudar para tela principal de receitas, mas mostrando apenas as receitas que contem o ingrediente escolhido.
 
-- Todos os elementos devem respeitar os atributos descritos no protótipo;
+91. As receitas mostradas devem representar o tipo escolhido antes na tela de explorar: se é comida ou bebida.
 
-- A tela segue as mesmas especificações da tela de receitas principal, a única diferença é que os filtros de categoria são substituídos por um dropdown;
+92. A rota deve ser `/explorar/comidas/ingredientes` ou `/explorar/bebidas/ingredientes`.
 
-- No dropdown devem estar disponíveis todas as áreas retornadas da API, incluindo a opção "Todas", que retorna as receitas sem nenhum filtro;
+#### Tela de explorar por local de origem/area
 
-- A rota deve ser `/explorar/comidas/area` ou `/explorar/bebidas/area`
+93. Todos os elementos devem respeitar os atributos descritos no protótipo para a tela de explorar por local de origem. Obs: se a opção escolhida for explorar bebidas, esta tela não deve estar disponível.
 
-### Tela de perfil
-- Todos os elementos devem respeitar os atributos descritos no protótipo;
+94. A tela segue as mesmas especificações da tela de receitas principal, a única diferença é que os filtros de categoria são substituídos por um dropdown. Obs: se a opção escolhida for explorar bebidas, esta tela não deve estar disponível.
 
-- O e-mail do usuário deve estar visível.
+95. No dropdown devem estar disponíveis todas as áreas retornadas da API, incluindo a opção "Todas", que retorna as receitas sem nenhum filtro. Obs: se a opção escolhida for explorar bebidas, esta tela não deve estar disponível.
 
-- Essa tela deve conter 3 botões: um de receitas favoritas, um de receitas feitas e um para sair.
+96. A rota deve ser `/explorar/comidas/area`. Obs: se a opção escolhida for explorar bebidas, esta rota não deve estar disponível.
 
-- Ao clicar no botão de "Receitas Favoritas", a rota deve mudar para a tela de receitas favoritas;
+#### Tela de perfil
 
-- Ao clicar no botão de "Receitas Feitas", a rota deve mudar para a tela de receitas feitas;
+97. Todos os elementos devem respeitar os atributos descritos no protótipo para a tela de perfil.
 
-- Ao clicar no botão de "Sair", o `localStorage` deve ser limpo e a rota deve mudar para a tela de login.
+98. O e-mail do usuário deve estar visível.
 
+99. Essa tela deve conter 3 botões: um de receitas favoritas, um de receitas feitas e um para sair.
+
+100. Ao clicar no botão de "Receitas Favoritas", a rota deve mudar para a tela de receitas favoritas;
+
+101. Ao clicar no botão de "Receitas Feitas", a rota deve mudar para a tela de receitas feitas;
+
+102. Ao clicar no botão de "Sair", o `localStorage` deve ser limpo e a rota deve mudar para a tela de login.
+
+---
 
 ***Obs: A maneira como as APIs devem ser estruturadas segue os seguintes modelos: https://www.themealdb.com/api.php e https://www.thecocktaildb.com/api.php***
 
