@@ -1,9 +1,9 @@
-  .search-icon {
-    background: url('../img/search 1.svg');
-    cursor: pointer;
-    height: 30px;
-    left: 317px;
-    position: absolute;
-    top: 12px;
-    width: 30px;
-  }
+.search-icon {
+  background: url('../img/search 1.svg');
+  cursor: pointer;
+  height: 30px;
+  left: 317px;
+  position: absolute;
+  top: 12px;
+  width: 30px;
+}
