@@ -9,21 +9,56 @@ function handleSubmit(event, setRedirect) {
   setRedirect(true);
 }
 
-function formValidate(loginForm, setValidation) {
-  if (loginForm.checkValidity() === true) setValidation(false);
-  else setValidation(true);
+function formValidate(loginForm, setInvalidation) {
+  const emailInput = loginForm.firstChild;
+  const passwordInput = emailInput.nextSibling;
+  const errorLabel = emailInput.parentNode.querySelector('.invalid-feedback');
+
+  if (loginForm.checkValidity() === true) {
+    errorLabel.textContent = '';
+    setInvalidation(false);
+  }
+  else {
+    if (!emailInput.validity.valid || !passwordInput.validity.valid) {
+      errorLabel.textContent = emailInput.validationMessage || passwordInput.validationMessage;
+    }
+    setInvalidation(true);
+  }
 }
 
-function saveUserEmail(value, loginForm, setValidation) {
-  localStorage.setItem('user', JSON.stringify({ email: value }));
-  formValidate(loginForm, setValidation);
+function createInputs(loginForm, isInvalid, setInvalidation) {
+  return (
+    <>
+      <input
+        className="form-input"
+        required
+        type="email"
+        placeholder="Digite seu Email"
+        onChange={(e) => {
+          localStorage.setItem('user', JSON.stringify({ email: e.target.value }));
+          formValidate(loginForm, setInvalidation);
+        }}
+      />
+      <input
+        className="form-input"
+        required
+        minLength="6"
+        type="password"
+        placeholder="Digite sua Senha"
+        onChange={() => formValidate(loginForm, setInvalidation)}
+      />
+      <p className="invalid-feedback"></p>
+      <input className="form-submit" type="submit" value="Entrar" disabled={isInvalid} />
+    </>
+  );
 }
 
 function Login() {
-  const [shoudRedirect, setRedirect] = useState(false);
-  const [loginForm, setForm] = useState({});
-  const [isInvalid, setValidation] = useState(true);
-  if (shoudRedirect) return <Redirect to="/recipes" />;
+  const [shouldRedirect, setRedirect] = useState(false);
+  const [loginForm, setForm] = useState(<form />);
+  const [isInvalid, setInvalidation] = useState(true);
+  
+  if (shouldRedirect) return <Redirect to="/recipes" />;
   return (
     <div className="login">
       <h1>Login</h1>
@@ -32,22 +67,7 @@ function Login() {
         className="login-form"
         onSubmit={(event) => handleSubmit(event, setRedirect)}
       >
-        <input
-          className="form-input"
-          required
-          type="email"
-          placeholder="Digite seu Email"
-          onChange={(e) => saveUserEmail(e.target.value, loginForm, setValidation)}
-        />
-        <input
-          className="form-input"
-          required
-          minLength="6"
-          type="password"
-          placeholder="Digite sua Senha"
-          onChange={() => formValidate(loginForm, setValidation)}
-        />
-        <input className="form-submit" type="submit" value="Entrar" disabled={isInvalid} />
+        {createInputs(loginForm, isInvalid, setInvalidation)}
       </form>
     </div>
   );
