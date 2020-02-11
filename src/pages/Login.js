@@ -10,25 +10,25 @@ function handleSubmit(event, setRedirect) {
 }
 
 function formValidate(loginForm, setInvalidation) {
-  const emailInput = loginForm.firstChild;
-  const passwordInput = emailInput.nextSibling;
-  const errorLabel = emailInput.parentNode.querySelector('.invalid-feedback');
+  const emailInput = loginForm.getElementsByClassName('form-input')[0];
+  const passwordInput = loginForm.getElementsByClassName('form-input')[1];
+  const errorLabel = loginForm.querySelector('.invalid-feedback');
 
-  if (loginForm.checkValidity() === true) {
+  if (loginForm.checkValidity()) {
     errorLabel.textContent = '';
     setInvalidation(false);
   }
   else {
-    if (!emailInput.validity.valid || !passwordInput.validity.valid) {
-      errorLabel.textContent = emailInput.validationMessage || passwordInput.validationMessage;
-    }
+    const invalidInputs = !emailInput.validity.valid || !passwordInput.validity.valid;
+    const validationMessages = emailInput.validationMessage || passwordInput.validationMessage;
+    if (invalidInputs) errorLabel.textContent = validationMessages;
     setInvalidation(true);
   }
 }
 
 function createInputs(loginForm, isInvalid, setInvalidation) {
   return (
-    <>
+    <div className="form-inputs">
       <input
         className="form-input"
         required
@@ -49,7 +49,7 @@ function createInputs(loginForm, isInvalid, setInvalidation) {
       />
       <p className="invalid-feedback"></p>
       <input className="form-submit" type="submit" value="Entrar" disabled={isInvalid} />
-    </>
+    </div>
   );
 }
 
