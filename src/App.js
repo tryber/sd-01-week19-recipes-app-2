@@ -4,15 +4,18 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
+import AppProvider from './context/AppContext';
 import Login from './pages/Login';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Login} />
-      </Switch>
-    </Router>
+    <AppProvider>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Login} />
+        </Switch>
+      </Router>
+    </AppProvider>
   );
 }
 
