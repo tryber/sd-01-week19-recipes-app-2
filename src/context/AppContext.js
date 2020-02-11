@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, createContext } from 'react';
 import PropTypes from 'prop-types';
 
-export const AppContext = React.createContext();
+export const AppContext = createContext();
 
-export default function AppProvider(props) {
+export default function AppProvider({ children }) {
   // header States
   const [displayUserIcon, setDisplayUserIcon] = useState(true);
   const [displaySearchIcon, setDisplaySearchIcon] = useState(true);
@@ -21,8 +21,6 @@ export default function AppProvider(props) {
     setDisplaySearchIcon,
     setTitle,
   };
-
-  const { children } = props;
 
   return (
     <AppContext.Provider value={{ context }}>
