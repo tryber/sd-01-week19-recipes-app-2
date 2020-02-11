@@ -1,11 +1,20 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 import AppProvider from './context/AppContext';
-// import Header from './components/Header';
+import Login from './pages/Login';
 
 function App() {
   return (
     <AppProvider>
-      {/* <Header /> */}
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Login} />
+        </Switch>
+      </Router>
     </AppProvider>
   );
 }
