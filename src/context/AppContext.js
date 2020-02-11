@@ -33,4 +33,4 @@ export default function AppProvider(props) {
 
 AppProvider.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};

@@ -1,13 +1,13 @@
 import React from 'react';
-import '../style/SearchIcon.css';
 import PropTypes from 'prop-types';
+import '../style/SearchIcon.css';
 
 export default function SearchIcon(props) {
   const { onClick } = props;
   return (
     <button
       type="button"
-      alt="Search Icon" 
+      alt="Search Icon"
       onClick={onClick}
       data-testid="search-top-btn"
       className="search-icon"
@@ -17,4 +17,4 @@ export default function SearchIcon(props) {
 
 SearchIcon.propTypes = {
   onClick: PropTypes.func.isRequired,
-}
+};
