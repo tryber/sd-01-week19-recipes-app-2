@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import '../style/Login.css';
 
-function handleSubmit(event, setRedirect) {
+function handleSubmit(event, setRedirect, userEmail) {
   event.preventDefault();
   localStorage.setItem('meals-token', '1');
   localStorage.setItem('cocktails-token', '1');
+  localStorage.setItem('user', JSON.stringify({ email: userEmail }));
   setRedirect(true);
 }
 
@@ -25,7 +26,7 @@ function formValidate(loginForm, setInvalidation) {
   return setInvalidation(true);
 }
 
-function createInputs(loginForm, isInvalid, setInvalidation) {
+function createInputs(loginForm, isInvalid, setInvalidation, setUserEmail) {
   return (
     <div className="form-inputs">
       <input
@@ -34,7 +35,7 @@ function createInputs(loginForm, isInvalid, setInvalidation) {
         type="email"
         placeholder="Digite seu Email"
         onChange={(e) => {
-          localStorage.setItem('user', JSON.stringify({ email: e.target.value }));
+          setUserEmail(e.target.value);
           formValidate(loginForm, setInvalidation);
         }}
       />
@@ -56,6 +57,7 @@ function Login() {
   const [shouldRedirect, setRedirect] = useState(false);
   const [loginForm, setForm] = useState(<form />);
   const [isInvalid, setInvalidation] = useState(true);
+  const [userEmail, setUserEmail] = useState('');
 
   if (shouldRedirect) return <Redirect to="/recipes" />;
   return (
@@ -64,9 +66,9 @@ function Login() {
       <form
         ref={(form) => setForm(form)}
         className="login-form"
-        onSubmit={(event) => handleSubmit(event, setRedirect)}
+        onSubmit={(event) => handleSubmit(event, setRedirect, userEmail)}
       >
-        {createInputs(loginForm, isInvalid, setInvalidation)}
+        {createInputs(loginForm, isInvalid, setInvalidation, setUserEmail)}
       </form>
     </div>
   );
