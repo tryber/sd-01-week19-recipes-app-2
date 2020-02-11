@@ -16,14 +16,13 @@ function formValidate(loginForm, setInvalidation) {
 
   if (loginForm.checkValidity()) {
     errorLabel.textContent = '';
-    setInvalidation(false);
+    return setInvalidation(false);
   }
-  else {
-    const invalidInputs = !emailInput.validity.valid || !passwordInput.validity.valid;
-    const validationMessages = emailInput.validationMessage || passwordInput.validationMessage;
-    if (invalidInputs) errorLabel.textContent = validationMessages;
-    setInvalidation(true);
+  const invalidInputs = !emailInput.validity.valid || !passwordInput.validity.valid;
+  if (invalidInputs) {
+    errorLabel.textContent = emailInput.validationMessage || passwordInput.validationMessage;
   }
+  return setInvalidation(true);
 }
 
 function createInputs(loginForm, isInvalid, setInvalidation) {
@@ -47,7 +46,7 @@ function createInputs(loginForm, isInvalid, setInvalidation) {
         placeholder="Digite sua Senha"
         onChange={() => formValidate(loginForm, setInvalidation)}
       />
-      <p className="invalid-feedback"></p>
+      <p className="invalid-feedback" />
       <input className="form-submit" type="submit" value="Entrar" disabled={isInvalid} />
     </div>
   );
@@ -57,7 +56,7 @@ function Login() {
   const [shouldRedirect, setRedirect] = useState(false);
   const [loginForm, setForm] = useState(<form />);
   const [isInvalid, setInvalidation] = useState(true);
-  
+
   if (shouldRedirect) return <Redirect to="/recipes" />;
   return (
     <div className="login">
