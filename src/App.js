@@ -6,9 +6,12 @@ import {
 } from 'react-router-dom';
 import AppProvider from './context/AppContext';
 import Login from './pages/Login';
+import { getRandomRecipes } from './services/APIs';
 
 function App() {
   return (
+    <div>
+      {console.log(getRandomRecipes('cocktail', 12))}
     <AppProvider>
       <Router>
         <Switch>
@@ -16,6 +19,7 @@ function App() {
         </Switch>
       </Router>
     </AppProvider>
+    </div>
   );
 }
 
