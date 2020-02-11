@@ -1,8 +1,8 @@
-.user-icon{
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  left: 15px;
-  top: 12px;
-  background: url('../img/user 1.svg');
+.user-icon {
+	background: url('../img/user 1.svg');
+	height: 30px;
+	left: 15px;
+	position: absolute;
+	top: 12px;
+	width: 30px;
 }

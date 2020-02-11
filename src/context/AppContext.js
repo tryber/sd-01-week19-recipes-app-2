@@ -30,3 +30,7 @@ export default function AppProvider(props) {
     </AppContext.Provider>
   );
 }
+
+AppProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+}
