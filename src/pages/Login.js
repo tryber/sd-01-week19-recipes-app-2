@@ -10,25 +10,33 @@ function handleSubmit(event, setRedirect, userEmail) {
   setRedirect(true);
 }
 
-function formValidate(loginForm, setInvalidation) {
-  const emailInput = loginForm.getElementsByClassName('form-input')[0];
-  const passwordInput = loginForm.getElementsByClassName('form-input')[1];
+function formValidate() {
+  const loginForm = document.querySelector('.login-form');
+  const emailInput = loginForm.querySelectorAll('.form-input')[0];
+  const passwordInput = loginForm.querySelectorAll('.form-input')[1];
   const errorLabel = loginForm.querySelector('.invalid-feedback');
+  const buttonSubmit = loginForm.querySelector('.form-submit');
 
   if (loginForm.checkValidity()) {
     errorLabel.textContent = '';
-    return setInvalidation(false);
+    buttonSubmit.disabled = false;
+    return true;
   }
   const invalidInputs = !emailInput.validity.valid || !passwordInput.validity.valid;
   if (invalidInputs) {
     errorLabel.textContent = emailInput.validationMessage || passwordInput.validationMessage;
   }
-  return setInvalidation(true);
+  buttonSubmit.disabled = true;
 }
 
-function createInputs(loginForm, isInvalid, setInvalidation, setUserEmail) {
+function Login() {
+  const [shouldRedirect, setRedirect] = useState(false);
+  const [userEmail, setUserEmail] = useState('');
+  if (shouldRedirect) return <Redirect to="/recipes" />;
   return (
-    <div className="form-inputs">
+    <div className="login">
+      <h1>Login</h1>
+      <form className="login-form" onSubmit={(event) => handleSubmit(event, setRedirect, userEmail)}>
       <input
         className="form-input"
         required
@@ -36,7 +44,7 @@ function createInputs(loginForm, isInvalid, setInvalidation, setUserEmail) {
         placeholder="Digite seu Email"
         onChange={(e) => {
           setUserEmail(e.target.value);
-          formValidate(loginForm, setInvalidation);
+          formValidate();
         }}
       />
       <input
@@ -45,30 +53,10 @@ function createInputs(loginForm, isInvalid, setInvalidation, setUserEmail) {
         minLength="6"
         type="password"
         placeholder="Digite sua Senha"
-        onChange={() => formValidate(loginForm, setInvalidation)}
+        onChange={() => formValidate()}
       />
       <p className="invalid-feedback" />
-      <input className="form-submit" type="submit" value="Entrar" disabled={isInvalid} />
-    </div>
-  );
-}
-
-function Login() {
-  const [shouldRedirect, setRedirect] = useState(false);
-  const [loginForm, setForm] = useState(<form />);
-  const [isInvalid, setInvalidation] = useState(true);
-  const [userEmail, setUserEmail] = useState('');
-
-  if (shouldRedirect) return <Redirect to="/recipes" />;
-  return (
-    <div className="login">
-      <h1>Login</h1>
-      <form
-        ref={(form) => setForm(form)}
-        className="login-form"
-        onSubmit={(event) => handleSubmit(event, setRedirect, userEmail)}
-      >
-        {createInputs(loginForm, isInvalid, setInvalidation, setUserEmail)}
+      <input className="form-submit" type="submit" value="Entrar" disabled />
       </form>
     </div>
   );

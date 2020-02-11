@@ -7,13 +7,10 @@
 }
 
 .login .login-form {
-  width: 90%;
-}
-
-.login .form-inputs {
   align-items: center;
   display: flex;
   flex-direction: column;
+  width: 90%;
 }
 
 .login .form-input {
