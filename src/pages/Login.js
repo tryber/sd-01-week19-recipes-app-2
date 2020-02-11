@@ -27,6 +27,7 @@ function formValidate() {
     errorLabel.textContent = emailInput.validationMessage || passwordInput.validationMessage;
   }
   buttonSubmit.disabled = true;
+  return false;
 }
 
 function Login() {
@@ -36,27 +37,27 @@ function Login() {
   return (
     <div className="login">
       <h1>Login</h1>
-      <form className="login-form" onSubmit={(event) => handleSubmit(event, setRedirect, userEmail)}>
-      <input
-        className="form-input"
-        required
-        type="email"
-        placeholder="Digite seu Email"
-        onChange={(e) => {
-          setUserEmail(e.target.value);
-          formValidate();
-        }}
-      />
-      <input
-        className="form-input"
-        required
-        minLength="6"
-        type="password"
-        placeholder="Digite sua Senha"
-        onChange={() => formValidate()}
-      />
-      <p className="invalid-feedback" />
-      <input className="form-submit" type="submit" value="Entrar" disabled />
+      <form className="login-form" onSubmit={(e) => handleSubmit(e, setRedirect, userEmail)}>
+        <input
+          className="form-input"
+          required
+          type="email"
+          placeholder="Digite seu Email"
+          onChange={(e) => {
+            setUserEmail(e.target.value);
+            formValidate();
+          }}
+        />
+        <input
+          className="form-input"
+          required
+          minLength="6"
+          type="password"
+          placeholder="Digite sua Senha"
+          onChange={() => formValidate()}
+        />
+        <p className="invalid-feedback" />
+        <input className="form-submit" type="submit" value="Entrar" disabled />
       </form>
     </div>
   );
