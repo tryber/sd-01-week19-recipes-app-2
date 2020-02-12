@@ -1,10 +1,10 @@
 const multipleRecipes = (randomRecipes, type) => {
   const recipesArray = randomRecipes.map((recipe) => {
-    if (type === 'meal') return recipe = recipe.meals[0];
-    else return recipe = recipe.drinks[0];
+    if (type === 'meal') recipe = recipe.meals[0];
+    else recipe = recipe.drinks[0];
   });
   return recipesArray;
-}
+};
 
 export const getRandomRecipes = async (type, number) => {
   const randomRecipes = [];
