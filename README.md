@@ -397,7 +397,7 @@ Exemplo: `/receitas/comida/{id-da-receita}`
 
 81. Todos os elementos devem respeitar os atributos descritos no protótipo para a tela de explorar bebidas ou comidas.
 
-82. Caso na tela de explorar a pessoa tenha clicado em comidas, o titulo deve mostrar "Explora - Comidas". O mesmo para bebidas.
+82. Caso na tela de explorar a pessoa tenha clicado em comidas, o titulo deve mostrar "Explorar - Comidas". O mesmo para bebidas.
 
 83. A tela deve ter três botões: um para explorar por ingrediente, um para explorar por local de origem e um para pegar uma receita aleatória. Obs: se a opção escolhida for explorar bebidas, o botão para explorar por local de origem não deve estar disponível.
 
