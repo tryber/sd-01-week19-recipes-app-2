@@ -1,7 +1,7 @@
 const multipleRecipes = (randomRecipes, type) => {
   const recipesArray = randomRecipes.map((recipe) => {
-    if (type === 'meal') recipe = recipe.meals[0];
-    else recipe = recipe.drinks[0];
+    if (type === 'meal') return recipe.meals[0];
+    else return recipe.drinks[0];
   });
   return recipesArray;
 };
@@ -12,7 +12,7 @@ export const getRandomRecipes = async (type, number) => {
     const response = fetch(`https://www.the${type}db.com/api/json/v1/1/random.php`).then((data) => data.json());
     randomRecipes.push(response);
   }
-  return multipleRecipes(await Promise.all(randomRecipes, type));
+  return multipleRecipes(await Promise.all(randomRecipes), type);
 };
 
 const getRecipes = async (type, endPoint) => {
