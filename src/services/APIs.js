@@ -1,7 +1,7 @@
 const multipleRecipes = (randomRecipes, type) => {
   const recipesArray = randomRecipes.map((recipe) => {
     if (type === 'meal') return recipe.meals[0];
-    else return recipe.drinks[0];
+    return recipe.drinks[0];
   });
   return recipesArray;
 };
