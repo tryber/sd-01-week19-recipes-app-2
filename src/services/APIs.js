@@ -1,29 +1,23 @@
-const getRecipes = async (type, endPoint) => {
-  const response = await fetch(`https://www.the${type}db.com/api/json/v1/1/${endPoint}`);
-  return response.json();
-};
+const multipleRecipes = (randomRecipes, type) => {
+  const recipesArray = randomRecipes.map((recipe) => {
+    if (type === 'meal') return recipe = recipe.meals[0];
+    else return recipe = recipe.drinks[0];
+  });
+  return recipesArray;
+}
 
 export const getRandomRecipes = async (type, number) => {
   const randomRecipes = [];
   for (let index = 0; index < number; index += 1) {
-    const response = await fetch(`https://www.the${type}db.com/api/json/v1/1/random.php`).then((data) => data.json());
-    let recipe;
-    if (type === 'meal') recipe = response.meals[0];
-    else recipe = response.drinks[0];
-    randomRecipes.push(recipe);
+    const response = fetch(`https://www.the${type}db.com/api/json/v1/1/random.php`).then((data) => data.json());
+    randomRecipes.push(response);
   }
-  console.log(randomRecipes)
-  return randomRecipes;
+  return multipleRecipes(await Promise.all(randomRecipes, type));
 };
 
-export const getIngredientImage = async (type, endPoint) => {
-  const src = `https://www.the${type}db.com/images/ingredients/${endPoint}`;
-  return src;
-};
-
-export const getRecipeImage = async (type, endPoint) => {
-  const src = await fetch(`https://www.the${type}db.com/images/media/meals/${endPoint}/preview`);
-  return src;
+const getRecipes = async (type, endPoint) => {
+  const response = await fetch(`https://www.the${type}db.com/api/json/v1/1/${endPoint}`);
+  return response.json();
 };
 
 export const searchByName = (type, parameter) => {
@@ -39,4 +33,14 @@ export const searchByIngredient = (type, parameter) => {
 export const searchByFirstLetter = (type, parameter) => {
   const endPoint = `search.php?f=${parameter}`;
   return getRecipes(type, endPoint);
+};
+
+export const getIngredientImage = async (type, endPoint) => {
+  const src = `https://www.the${type}db.com/images/ingredients/${endPoint}`;
+  return src;
+};
+
+export const getRecipeImage = async (type, endPoint) => {
+  const src = await fetch(`https://www.the${type}db.com/images/media/meals/${endPoint}/preview`);
+  return src;
 };
