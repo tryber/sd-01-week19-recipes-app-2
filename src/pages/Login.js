@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import '../style/Login.css';
+import Footer from '../components/Footer';
 
 function handleSubmit(event, setRedirect, userEmail) {
   event.preventDefault();
@@ -35,6 +36,7 @@ function Login() {
   const [userEmail, setUserEmail] = useState('');
   if (shouldRedirect) return <Redirect to="/recipes" />;
   return (
+    <div >
     <div className="login">
       <h1>Login</h1>
       <form className="login-form" onSubmit={(e) => handleSubmit(e, setRedirect, userEmail)}>
@@ -59,6 +61,8 @@ function Login() {
         <p className="invalid-feedback" />
         <input className="form-submit" type="submit" value="Entrar" disabled />
       </form>
+    </div>
+    <Footer />
     </div>
   );
 }

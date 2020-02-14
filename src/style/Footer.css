@@ -1,0 +1,26 @@
+.img-footer {
+  color: none;
+  background-color: none;
+}
+
+li {
+  list-style-type: none;
+  padding: 15px;
+}
+ul.footer {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  bottom: 0%;
+  background-color: #C4C4C4;
+}
+.content-footer {
+  display: flex;
+  justify-content: center;
+  height: 58px;
+  width: 100%;
+}
