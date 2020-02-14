@@ -41,7 +41,7 @@ function inputEmail(setUserEmail) {
     }}
   />);
 }
-function inputPassword(){
+function inputPassword() {
   return (<input
     className="form-input"
     required
@@ -49,7 +49,7 @@ function inputPassword(){
     type="password"
     placeholder="Digite sua Senha"
     onChange={() => formValidate()}
-  />)
+  />);
 }
 function Login() {
   const [shouldRedirect, setRedirect] = useState(false);
