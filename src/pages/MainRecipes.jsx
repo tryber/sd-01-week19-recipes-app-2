@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { getRandomRecipes } from '../services/APIs';
 import { AppContext } from '../context/AppContext';
@@ -9,16 +9,22 @@ import '../style/MainRecipes.css';
 
 function MainRecipes({ location: { pathname } }) {
   const { recipesResults, setRecipesResults } = useContext(AppContext);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     if (pathname === '/recipes' || pathname === '/comidas') {
       getRandomRecipes('meal', 12, setRecipesResults);
     } else {
       getRandomRecipes('cocktail', 12, setRecipesResults);
     }
-  }, []);
+  }, [pathname]);
 
-  if (!recipesResults) {
+  useEffect(() => {
+    setLoading(false);
+  }, [recipesResults]);
+
+  if (!recipesResults || isLoading) {
     return (
       <div className="main-recipes">
         <h1>Main Recipes</h1>
