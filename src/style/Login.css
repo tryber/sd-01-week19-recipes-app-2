@@ -4,6 +4,7 @@
   flex-direction: column;
   height: 85vh;
   justify-content: center;
+  width: 100%;
 }
 
 .login .login-form {

@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 export const AppContext = createContext();
 
 export default function AppProvider({ children }) {
+  // recipes State
+  const [recipesResults, setRecipesResults] = useState();
+
   // header States
   const [displayUserIcon, setDisplayUserIcon] = useState(true);
   const [displaySearchIcon, setDisplaySearchIcon] = useState(true);
@@ -12,17 +15,19 @@ export default function AppProvider({ children }) {
   const displaySearchBarToggle = () => setDisplaySearchBar(!displaySearchBar);
 
   const context = {
+    recipesResults,
     displayUserIcon,
     displaySearchIcon,
     displaySearchBar,
     title,
     displaySearchBarToggle,
+    setRecipesResults,
     setDisplayUserIcon,
     setDisplaySearchIcon,
     setTitle,
   };
   return (
-    <AppContext.Provider value={{ context }}>
+    <AppContext.Provider value={context}>
       {children}
     </AppContext.Provider>
   );

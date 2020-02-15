@@ -1,0 +1,9 @@
+.main-recipes {
+  text-align: center;
+}
+
+.recipes-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
