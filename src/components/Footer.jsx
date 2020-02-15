@@ -5,15 +5,15 @@ import food from '../img/food.svg';
 import drink from '../img/drink.svg';
 import '../style/Footer.css';
 
-const generateLiFooter = (link, img) => {
+function generateLiFooter(link, img) {
   return (
-  <li>
-    <Link to={`/${link}`}>
-      <span>
-        <img className="img-footer" src={img} alt={img} />
-      </span>
-    </Link>
-  </li>
+    <li>
+      <Link to={`/${link}`}>
+        <span>
+          <img className="img-footer" src={img} alt={img} />
+        </span>
+      </Link>
+    </li>
   );
 }
 
@@ -21,9 +21,9 @@ export default function Footer() {
   return (
     <div className="content-footer">
       <ul className="footer">
-        {generateLiFooter("explorer", explorer)}
-        {generateLiFooter("food", food)}
-        {generateLiFooter("drink", drink)}
+        {generateLiFooter('explorer', explorer)}
+        {generateLiFooter('food', food)}
+        {generateLiFooter('drink', drink)}
       </ul>
     </div>
   );

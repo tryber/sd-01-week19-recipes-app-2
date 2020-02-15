@@ -3,12 +3,12 @@ import Footer from '../components/Footer';
 import '../style/Footer.css';
 
 
-function Explorer () {
+function Explorer() {
   return (
     <div>
       <div>
-          <button>Explorar Comidas</button>
-          <button>Explorar Bebidas</button>
+        <button>Explorar Comidas</button>
+        <button>Explorar Bebidas</button>
       </div>
       <Footer />
     </div>
