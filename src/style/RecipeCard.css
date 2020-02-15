@@ -9,6 +9,7 @@
 
 .recipe-card {
   border-radius: 10px;
+  cursor: pointer;
   height: 200px;
   margin-bottom: 20px;
   width: 150px;

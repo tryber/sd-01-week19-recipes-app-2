@@ -6,11 +6,15 @@ import RecipeCard from '../components/RecipeCard';
 // import Footer from '../components/Footer';
 import '../style/MainRecipes.css';
 
-function MainRecipes() {
+function MainRecipes({ location: { pathname } }) {
   const { recipesResults, setRecipesResults } = useContext(AppContext);
 
   useEffect(() => {
-    getRandomRecipes('meal', 12, setRecipesResults);
+    if (pathname === '/recipes' || pathname === '/comidas') {
+      getRandomRecipes('meal', 12, setRecipesResults);
+    } else {
+      getRandomRecipes('cocktail', 12, setRecipesResults);
+    }
   }, []);
 
   if (!recipesResults) return (
