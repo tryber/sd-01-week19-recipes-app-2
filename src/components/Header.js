@@ -18,7 +18,7 @@ export default function Header() {
           displaySearchBarToggle,
         },
       }) => (
-        <Router>
+        <>
           <div className="header-container">
             {displayUserIcon && (
               <Link to="/profile">
@@ -29,7 +29,7 @@ export default function Header() {
             {displaySearchIcon && <SearchIcon onClick={displaySearchBarToggle} />}
           </div>
           {displaySearchBar && <SearchBar />}
-        </Router>
+        </>
       )}
     </AppContext.Consumer>
   );

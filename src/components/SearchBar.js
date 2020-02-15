@@ -4,7 +4,6 @@ import '../style/SearchBar.css';
 
 export default function SearchBar() {
   return (
-    <Router>
       <div className="search-bar">
         <input data-testid="search-input" className="search-input" type="text" />
         <div className="row-radio-buttons">
@@ -30,6 +29,5 @@ export default function SearchBar() {
           </label>
         </div>
       </div>
-    </Router>
   );
 }
