@@ -7,7 +7,7 @@ import {
 import AppProvider from './context/AppContext';
 import Login from './pages/Login';
 import Header from './components/Header';
-import './App.css';
+import './style/App.css';
 
 function App() {
   return (

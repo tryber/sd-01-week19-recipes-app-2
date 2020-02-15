@@ -12,6 +12,7 @@ export default function Header() {
     displaySearchIcon,
     displaySearchBar,
     title,
+    displayHeader,
     displaySearchBarToggle,
   } } = useContext(AppContext);
 

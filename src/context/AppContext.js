@@ -9,6 +9,7 @@ export default function AppProvider({ children }) {
   const [displaySearchIcon, setDisplaySearchIcon] = useState(true);
   const [displaySearchBar, setDisplaySearchBar] = useState(false);
   const [title, setTitle] = useState('Header');
+  const [displayHeader, setDisplayHeader] = useState(true);
   const displaySearchBarToggle = () => setDisplaySearchBar(!displaySearchBar);
 
   const context = {
@@ -20,6 +21,8 @@ export default function AppProvider({ children }) {
     setDisplayUserIcon,
     setDisplaySearchIcon,
     setTitle,
+    displayHeader,
+    setDisplayHeader
   };
 
   return (
