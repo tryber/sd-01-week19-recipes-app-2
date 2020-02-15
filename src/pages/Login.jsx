@@ -30,7 +30,8 @@ function formValidate() {
   return false;
 }
 function inputEmail(setUserEmail) {
-  return (<input
+  return (
+  <input
     className="form-input"
     required
     type="email"
@@ -39,17 +40,20 @@ function inputEmail(setUserEmail) {
       setUserEmail(e.target.value);
       formValidate();
     }}
-  />);
+  />
+  );
 }
 function inputPassword() {
-  return (<input
+  return (
+  <input
     className="form-input"
     required
     minLength="6"
     type="password"
     placeholder="Digite sua Senha"
     onChange={() => formValidate()}
-  />);
+  />
+  );
 }
 function Login() {
   const [shouldRedirect, setRedirect] = useState(false);
