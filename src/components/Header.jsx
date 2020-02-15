@@ -8,7 +8,6 @@ import '../style/Header.css';
 
 export default function Header() {
   const { context: {
-    displayUserIcon,
     displaySearchIcon,
     displaySearchBar,
     title,
@@ -20,11 +19,9 @@ export default function Header() {
     <>
       <div className={`header-container ${!displayHeader ? 'display-none' : undefined }`}>
           <div className="header-content">
-            {displayUserIcon && (
               <Link to="/profile">
                 <UserIcon />
               </Link>
-            )}
             <span data-testid="page-title" className="header-title">{title}</span>
             {displaySearchIcon && <SearchIcon onClick={displaySearchBarToggle} />}
           </div>

@@ -8,7 +8,6 @@ export default function AppProvider({ children }) {
   const [recipesResults, setRecipesResults] = useState();
 
   // header States
-  const [displayUserIcon, setDisplayUserIcon] = useState(true);
   const [displaySearchIcon, setDisplaySearchIcon] = useState(true);
   const [displaySearchBar, setDisplaySearchBar] = useState(false);
   const [title, setTitle] = useState('Header');
@@ -17,13 +16,11 @@ export default function AppProvider({ children }) {
 
   const context = {
     recipesResults,
-    displayUserIcon,
     displaySearchIcon,
     displaySearchBar,
     title,
     displaySearchBarToggle,
     setRecipesResults,
-    setDisplayUserIcon,
     setDisplaySearchIcon,
     setTitle,
     displayHeader,
