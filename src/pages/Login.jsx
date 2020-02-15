@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
+import { AppContext } from '../context/AppContext';
 import '../style/Login.css';
 
 function handleSubmit(event, setRedirect, userEmail) {
@@ -33,6 +34,9 @@ function formValidate() {
 function Login() {
   const [shouldRedirect, setRedirect] = useState(false);
   const [userEmail, setUserEmail] = useState('');
+  const { context: { setDisplayHeader } } = useContext(AppContext);
+  setDisplayHeader(false);
+
   if (shouldRedirect) return <Redirect to="/recipes" />;
   return (
     <div className="login">

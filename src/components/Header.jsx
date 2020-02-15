@@ -17,7 +17,7 @@ export default function Header() {
 
   return (
     <div>
-      <div className="header-container">
+      <div className={`header-container ${!displayHeader ? 'display-none' : undefined }`}>
         {displayUserIcon && (
           <Link to="/profile">
             <UserIcon />
