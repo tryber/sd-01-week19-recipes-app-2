@@ -7,13 +7,13 @@ import { AppContext } from '../context/AppContext';
 import '../style/Header.css';
 
 export default function Header() {
-  const { context: {
+  const {
     displaySearchIcon,
     displaySearchBar,
     title,
     displayHeader,
     displaySearchBarToggle,
-  } } = useContext(AppContext);
+  } = useContext(AppContext);
 
   return (
     <>

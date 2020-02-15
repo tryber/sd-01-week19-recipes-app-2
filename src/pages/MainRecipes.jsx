@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 import '../style/MainRecipes.css';
 
 function MainRecipes({ location: { pathname } }) {
-  const { recipesResults, setRecipesResults } = useContext(AppContext);
+  const [recipesResults, setRecipesResults] = useState(undefined);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {

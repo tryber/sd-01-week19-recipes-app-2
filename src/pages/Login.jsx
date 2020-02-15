@@ -59,7 +59,7 @@ function inputPassword() {
 function Login() {
   const [shouldRedirect, setRedirect] = useState(false);
   const [userEmail, setUserEmail] = useState('');
-  const { context: { setDisplayHeader } } = useContext(AppContext);
+  const { setDisplayHeader } = useContext(AppContext);
   setDisplayHeader(true);
 
   if (shouldRedirect) return <Redirect to="/recipes" />;
