@@ -1,0 +1,37 @@
+.recipe-container {
+  border-radius: 10px;
+  box-shadow: 0 5px 5px gray;
+  display: flex;
+  height: 200px;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+
+.recipe-card {
+  border-radius: 10px;
+  cursor: pointer;
+  height: 200px;
+  margin-bottom: 20px;
+  width: 150px;
+}
+
+.recipe-image {
+  border-radius: 10px;
+  height: 109px;
+  width: 150px;
+}
+
+.recipe-category {
+  color: lightslategrey;
+  font-size: 14px;
+  line-height: 7px;
+  text-align: center;
+  width: 100%;
+}
+
+.recipe-name {
+  color: black;
+  font-size: 16px;
+  text-align: center;
+  width: 100%;
+}
