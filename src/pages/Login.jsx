@@ -40,7 +40,7 @@ function inputEmail(setUserEmail) {
         setUserEmail(e.target.value);
         formValidate();
       }}
-  />
+    />
   );
 }
 function inputPassword() {
