@@ -21,9 +21,9 @@ export default function Footer() {
   return (
     <div className="content-footer">
       <ul className="footer">
+        {generateLiFooter('comidas', food)}
         {generateLiFooter('explorer', explorer)}
-        {generateLiFooter('food', food)}
-        {generateLiFooter('drink', drink)}
+        {generateLiFooter('bebidas', drink)}
       </ul>
     </div>
   );

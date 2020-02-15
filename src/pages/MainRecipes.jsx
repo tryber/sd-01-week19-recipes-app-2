@@ -3,7 +3,7 @@ import { getRandomRecipes } from '../services/APIs';
 import { AppContext } from '../context/AppContext';
 import RecipeCard from '../components/RecipeCard';
 // import Header from '../components/Header';
-// import Footer from '../components/Footer';
+import Footer from '../components/Footer';
 import '../style/MainRecipes.css';
 
 function MainRecipes({ location: { pathname } }) {
@@ -33,7 +33,7 @@ function MainRecipes({ location: { pathname } }) {
           <RecipeCard key={`${recipe.strSource}${index * 2}`} recipe={recipe} index={index} />
         ))}
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
