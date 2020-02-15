@@ -6,7 +6,6 @@ import {
 } from 'react-router-dom';
 import AppProvider from './context/AppContext';
 import Login from './pages/Login';
-import Explorer from './pages/Explorer';
 
 function App() {
   return (
@@ -14,7 +13,6 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Login} />
-          <Route path="/explorer" component={Explorer} />
         </Switch>
       </Router>
     </AppProvider>
