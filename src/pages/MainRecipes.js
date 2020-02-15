@@ -17,17 +17,21 @@ function MainRecipes({ location: { pathname } }) {
     }
   }, []);
 
-  if (!recipesResults) return (
-    <div className="main-recipes">
-      <h1>Main Recipes</h1>
-      <p>Loading...</p>
-    </div>
-  );
+  if (!recipesResults) {
+    return (
+      <div className="main-recipes">
+        <h1>Main Recipes</h1>
+        <p>Loading...</p>
+      </div>
+    );
+  }
   return (
     <div className="main-recipes">
       {/* <Header /> */}
       <div className="recipes-list">
-        {recipesResults.map((recipe, index) => <RecipeCard key={index * 2} recipe={recipe} index={index} />)}
+        {recipesResults.map((recipe, index) => (
+          <RecipeCard key={`${recipe.strSource}${index * 2}`} recipe={recipe} index={index} />
+        ))}
       </div>
       {/* <Footer /> */}
     </div>
