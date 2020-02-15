@@ -17,19 +17,21 @@ export default function Header() {
   } } = useContext(AppContext);
 
   return (
-    <div>
+    <>
       <div className={`header-container ${!displayHeader ? 'display-none' : undefined }`}>
-        {displayUserIcon && (
-          <Link to="/profile">
-            <UserIcon />
-          </Link>
-        )}
-        <span data-testid="page-title" className="header-title">{title}</span>
-        {displaySearchIcon && <SearchIcon onClick={displaySearchBarToggle} />}
+          <div className="header-content">
+            {displayUserIcon && (
+              <Link to="/profile">
+                <UserIcon />
+              </Link>
+            )}
+            <span data-testid="page-title" className="header-title">{title}</span>
+            {displaySearchIcon && <SearchIcon onClick={displaySearchBarToggle} />}
+          </div>
       </div>
-      <div>
-        {displaySearchBar && <SearchBar />}
-      </div>
-    </div>
+      <>
+      {displaySearchBar && <SearchBar />}
+      </>
+    </>
   )
 }

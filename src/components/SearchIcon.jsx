@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../style/SearchIcon.css';
+import SearchImage from '../img/search-icon.svg';
 
 export default function SearchIcon(props) {
   const { onClick } = props;
@@ -8,10 +9,11 @@ export default function SearchIcon(props) {
     <button
       type="button"
       alt="Search Icon"
-      onClick={onClick}
       data-testid="search-top-btn"
       className="search-icon"
-    />
+    >
+      <img onClick={onClick} src={SearchImage} alt="search icon" />
+    </button>
   );
 }
 

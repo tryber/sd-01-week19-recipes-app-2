@@ -60,7 +60,7 @@ function Login() {
   const [shouldRedirect, setRedirect] = useState(false);
   const [userEmail, setUserEmail] = useState('');
   const { context: { setDisplayHeader } } = useContext(AppContext);
-  setDisplayHeader(false);
+  setDisplayHeader(true);
 
   if (shouldRedirect) return <Redirect to="/recipes" />;
   return (
