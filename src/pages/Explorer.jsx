@@ -8,12 +8,12 @@ function Explorer() {
     <div>
       <div className="content-btn">
         <button className="btn one">
-          <Link className="link" to="/food">
+          <Link className="link" to="/comidas">
             Explorar Comidas
           </Link>
         </button>
         <button className="btn two">
-          <Link className="link" to="/food">
+          <Link className="link" to="/bebidas">
             Explorar Bebidas
           </Link>
         </button>
