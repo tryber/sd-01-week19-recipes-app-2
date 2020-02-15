@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import UserIcon from './UserIcon';
 import SearchIcon from './SearchIcon';
@@ -7,32 +7,28 @@ import { AppContext } from '../context/AppContext';
 import '../style/Header.css';
 
 export default function Header() {
+  const { context: {
+    displayUserIcon,
+    displaySearchIcon,
+    displaySearchBar,
+    title,
+    displaySearchBarToggle,
+  } } = useContext(AppContext);
+
   return (
-    <AppContext.Consumer>
-      {({
-        context: {
-          displayUserIcon,
-          displaySearchIcon,
-          displaySearchBar,
-          title,
-          displaySearchBarToggle,
-        },
-      }) => (
-        <div>
-          <div className="header-container">
-            {displayUserIcon && (
-              <Link to="/profile">
-                <UserIcon />
-              </Link>
-            )}
-            <span data-testid="page-title" className="header-title">{title}</span>
-            {displaySearchIcon && <SearchIcon onClick={displaySearchBarToggle} />}
-          </div>
-          <div>
-            {displaySearchBar && <SearchBar />}
-          </div>
-        </div>
-      )}
-    </AppContext.Consumer>
-  );
+    <div>
+      <div className="header-container">
+        {displayUserIcon && (
+          <Link to="/profile">
+            <UserIcon />
+          </Link>
+        )}
+        <span data-testid="page-title" className="header-title">{title}</span>
+        {displaySearchIcon && <SearchIcon onClick={displaySearchBarToggle} />}
+      </div>
+      <div>
+        {displaySearchBar && <SearchBar />}
+      </div>
+    </div>
+  )
 }
