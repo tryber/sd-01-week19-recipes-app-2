@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from 'react';
+import PropTypes from 'prop-types';
 import { getRandomRecipes } from '../services/APIs';
 import { AppContext } from '../context/AppContext';
 import RecipeCard from '../components/RecipeCard';
@@ -37,5 +38,11 @@ function MainRecipes({ location: { pathname } }) {
     </div>
   );
 }
+
+MainRecipes.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default MainRecipes;
