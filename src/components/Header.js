@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import UserIcon from './UserIcon';
 import SearchIcon from './SearchIcon';
 import SearchBar from './SearchBar';
@@ -18,7 +18,7 @@ export default function Header() {
           displaySearchBarToggle,
         },
       }) => (
-        <>
+        <div>
           <div className="header-container">
             {displayUserIcon && (
               <Link to="/profile">
@@ -28,8 +28,10 @@ export default function Header() {
             <span data-testid="page-title" className="header-title">{title}</span>
             {displaySearchIcon && <SearchIcon onClick={displaySearchBarToggle} />}
           </div>
-          {displaySearchBar && <SearchBar />}
-        </>
+          <div>
+            {displaySearchBar && <SearchBar />}
+          </div>
+        </div>
       )}
     </AppContext.Consumer>
   );
