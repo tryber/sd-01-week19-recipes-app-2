@@ -1,14 +1,16 @@
 import React from 'react';
 import Footer from '../components/Footer';
-import '../style/Footer.css';
+import { Link } from 'react-router-dom';
+import "../style/Explorer.css"
+
 
 
 function Explorer() {
   return (
     <div>
-      <div>
-        <button>Explorar Comidas</button>
-        <button>Explorar Bebidas</button>
+      <div className="content-btn">
+        <button className="btn one"><Link className="link" to="/food">Explorar Comidas</Link></button>
+        <button className="btn two"><Link className="link" to="/food">Explorar Bebidas</Link></button>
       </div>
       <Footer />
     </div>
