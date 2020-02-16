@@ -15,4 +15,5 @@
 
 .category-button:focus {
   border: 3px solid gray;
+  outline: none;
 }

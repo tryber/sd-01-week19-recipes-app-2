@@ -2,19 +2,27 @@ import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 import '../style/RecipesCategories.css';
 
-function setCategory(category) {
-  console.log(category);
+function setCategory(elem, categoryFilter, setCategoryFilter) {
+  const category = elem.innerHTML;
+  if (categoryFilter === category) {
+    elem.blur();
+    setCategoryFilter('');
+  } else {
+    setCategoryFilter(category);
+  }
+  console.log(categoryFilter)
 }
 
 function RecipesCategories() {
-  const { recipesCategories } = useContext(AppContext);
+  const { recipesCategories, categoryFilter, setCategoryFilter } = useContext(AppContext);
   return (
     <div className="recipes-categories">
-      <button className="category-button" onClick={() => setCategory('All')}>All</button>
+      <button className="category-button" onClick={(e) => setCategory(e.target, categoryFilter, setCategoryFilter)}>All</button>
       {recipesCategories.map((category) => (
         <button
           data-testid={`${category}-category-filter`}
-          key={category} onClick={() => setCategory(category)}
+          key={category}
+          onClick={(e) => setCategory(e.target, categoryFilter, setCategoryFilter)}
           className="category-button"
         >
           {category}

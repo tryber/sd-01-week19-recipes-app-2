@@ -35,6 +35,11 @@ export const searchByFirstLetter = (type, parameter) => {
   return getRecipes(type, endPoint);
 };
 
+export const searchByCategory = (type, parameter) => {
+  const endPoint = `filter.php?c=${parameter}`;
+  return getRecipes(type, endPoint);
+};
+
 export const getIngredientImage = (type, endPoint) => {
   const src = `https://www.the${type}db.com/images/ingredients/${endPoint}`;
   return src;

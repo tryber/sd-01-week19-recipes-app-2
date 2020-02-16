@@ -7,6 +7,7 @@ export default function AppProvider({ children }) {
   // recipes State
   const [recipesResults, setRecipesResults] = useState();
   const [recipesCategories, setRecipesCategories] = useState();
+  const [categoryFilter, setCategoryFilter] = useState('');
 
   // header States
   const [displayUserIcon, setDisplayUserIcon] = useState(true);
@@ -18,6 +19,7 @@ export default function AppProvider({ children }) {
   const context = {
     recipesResults,
     recipesCategories,
+    categoryFilter,
     displayUserIcon,
     displaySearchIcon,
     displaySearchBar,
@@ -25,6 +27,7 @@ export default function AppProvider({ children }) {
     displaySearchBarToggle,
     setRecipesResults,
     setRecipesCategories,
+    setCategoryFilter,
     setDisplayUserIcon,
     setDisplaySearchIcon,
     setTitle,
