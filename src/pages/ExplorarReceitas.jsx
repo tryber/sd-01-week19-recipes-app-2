@@ -14,24 +14,24 @@ function generateButton(number, pathname, type, title) {
 
 function isComidasOrBebidas(pathname) {
   const title = {
-    title1: "Por ingredientes",
-    title3: "Por local de origem",
-    title2: "Me surpreenda",
-  }
+    title1: 'Por ingredientes',
+    title3: 'Por local de origem',
+    title2: 'Me surpreenda',
+  };
   if (pathname === '/explorar/comidas') { 
     return (
       <div className="content-btn">
-        {generateButton('one', pathname, 'ingredientes', title['title1'])}
-        {generateButton('two', pathname, 'local', title['title2'])}
-        {generateButton('three', pathname, 'random', title['title3'])}
+        {generateButton('one', pathname, 'ingredientes', title.title1)}
+        {generateButton('two', pathname, 'local', title.title2)}
+        {generateButton('three', pathname, 'random', title.title3)}
       </div>
     );
   } return (
-      <div className="content-btn">
-        {generateButton('one', pathname, 'ingredientes', title['title1'])}
-        {generateButton('two', pathname, 'local', title['title2'])}
-      </div>
-    );
+    <div className="content-btn">
+      {generateButton('one', pathname, 'ingredientes', title.title1)}
+      {generateButton('two', pathname, 'local', title.title2)}
+    </div>
+  );
 }
 
 function ExplorarReceitas({ location: { pathname } }) {
