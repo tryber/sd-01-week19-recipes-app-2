@@ -1,5 +1,4 @@
-.btnreceitas{
-  width: 161px;
+.btnreceitas {
   background-color: white;
   border: 0;
   border-radius: 6px;
@@ -10,10 +9,10 @@
   line-height: 37px;
   margin-left: 14px;
   text-align: left;
+  width: 161px;
 }
-.content-btn-receitas{
+.content-btn-receitas {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-
