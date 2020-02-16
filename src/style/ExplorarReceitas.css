@@ -16,3 +16,15 @@
   display: flex;
   flex-flow: row wrap;
 }
+
+.two-explorer {
+  margin-top: 33px;
+}
+
+.one-explorer {
+  margin-top: 33px;
+}
+
+.three-explorer {
+  margin-top: 23px;
+}

@@ -23,15 +23,15 @@ function isComidasOrBebidas(pathname) {
   if (pathname === '/explorar/comidas') {
     return (
       <div className="content-btn-receitas">
-        {generateButton('one', pathname, 'ingredientes', title.title1)}
-        {generateButton('two', pathname, 'local', title.title2)}
-        {generateButton('three', pathname, 'random', title.title3)}
+        {generateButton('one-explorer', pathname, 'ingredientes', title.title1)}
+        {generateButton('two-explorer', pathname, 'local', title.title2)}
+        {generateButton('three-explorer', pathname, 'random', title.title3)}
       </div>
     );
   } return (
     <div className="content-btn-receitas">
-      {generateButton('one', pathname, 'ingredientes', title.title1)}
-      {generateButton('two', pathname, 'local', title.title2)}
+      {generateButton('one-explorer', pathname, 'ingredientes', title.title1)}
+      {generateButton('two-explorer', pathname, 'local', title.title2)}
     </div>
   );
 }
