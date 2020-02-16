@@ -10,7 +10,8 @@ function setCategory(elem, categoryFilter, setCategoryFilter) {
     buttonAllStyle.border = '3px solid gray';
     setCategoryFilter('All');
   } else {
-    buttonAllStyle.border = '1px solid darkgray';
+    if (category === 'All') buttonAllStyle.border = '3px solid gray';
+    else buttonAllStyle.border = '1px solid darkgray';
     setCategoryFilter(category);
   }
 }
