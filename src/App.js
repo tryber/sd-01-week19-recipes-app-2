@@ -8,8 +8,9 @@ import AppProvider from './context/AppContext';
 import Login from './pages/Login';
 import Explorar from './pages/Explorar';
 import ExplorarComidas from './pages/ExplorarComidas';
-import ExplorarBebidas from './pages/ExplorarBebidas';
-
+import ExplorarReceitas from './pages/ExplorarBebidas';
+import MainRecipes from './pages/MainRecipes';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -18,10 +19,14 @@ function App() {
         <Switch>
           <Route exact path="/" component={Login} />
           <Route exact path="/explorar" component={Explorar} />
-          <Route path="/explorar/comidas">
+          {/* <Route path="/explorar/comidas">
             <ExplorarComidas />
-          </Route>
-          <Route exact path="/explorar/bebidas" component={ExplorarBebidas}  />
+          </Route> */}
+          <Route path="/explorar/bebidas" component={ExplorarReceitas}  />
+          <Route path="/recipes" component={MainRecipes} />
+          <Route path="/comidas" component={MainRecipes} />
+          <Route path="/bebidas" component={MainRecipes} />
+          <Route path="/profile" component={Profile} />
         </Switch>
       </Router>
     </AppProvider>

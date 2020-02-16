@@ -30,26 +30,30 @@ function formValidate() {
   return false;
 }
 function inputEmail(setUserEmail) {
-  return (<input
-    className="form-input"
-    required
-    type="email"
-    placeholder="Digite seu Email"
-    onChange={(e) => {
-      setUserEmail(e.target.value);
-      formValidate();
-    }}
-  />);
+  return (
+    <input
+      className="form-input"
+      required
+      type="email"
+      placeholder="Digite seu Email"
+      onChange={(e) => {
+        setUserEmail(e.target.value);
+        formValidate();
+      }}
+    />
+  );
 }
 function inputPassword() {
-  return (<input
-    className="form-input"
-    required
-    minLength="6"
-    type="password"
-    placeholder="Digite sua Senha"
-    onChange={() => formValidate()}
-  />);
+  return (
+    <input
+      className="form-input"
+      required
+      minLength="6"
+      type="password"
+      placeholder="Digite sua Senha"
+      onChange={() => formValidate()}
+    />
+  );
 }
 function Login() {
   const [shouldRedirect, setRedirect] = useState(false);
