@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import AppProvider from './context/AppContext';
 import Login from './pages/Login';
+import Explorer from './pages/Explorar';
 import MainRecipes from './pages/MainRecipes';
 import Profile from './pages/Profile';
 
@@ -15,6 +16,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Login} />
+          <Route path="/explorer" component={Explorer} />
           <Route path="/receitas/comida/:id" component={Profile} />
           <Route path="/receitas/bebida/:id" component={Profile} />
           <Route path="/receitas" component={MainRecipes} />
