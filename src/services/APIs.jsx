@@ -35,12 +35,22 @@ export const searchByFirstLetter = (type, parameter) => {
   return getRecipes(type, endPoint);
 };
 
-export const getIngredientImage = async (type, endPoint) => {
+export const getIngredientImage = (type, endPoint) => {
   const src = `https://www.the${type}db.com/images/ingredients/${endPoint}`;
   return src;
 };
 
-export const getRecipeImage = async (type, endPoint) => {
-  const src = await fetch(`https://www.the${type}db.com/images/media/meals/${endPoint}/preview`);
+export const getRecipeImage = (type, endPoint) => {
+  let recipeType = (type === 'meal') ? 'meals' : 'drink';
+  const src = `https://www.the${type}db.com/images/media/${recipeType}/${endPoint}/preview`;
   return src;
 };
+
+export const getRecipeCategories = async (type, setCategories) => {
+  let categoriesList = await fetch(`https://www.the${type}db.com/api/json/v1/1/list.php?c=list`).then((data) => data.json());
+  if (type === 'meal') categoriesList = categoriesList.meals;
+  else categoriesList = categoriesList.drinks;
+
+  const categories = categoriesList.filter((category, index) => index < 5).map((category) => category.strCategory);
+  setCategories(categories);
+}

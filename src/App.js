@@ -15,9 +15,9 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Login} />
-          <Route path="/recipes" component={MainRecipes} />
-          <Route path="/comidas" component={MainRecipes} />
-          <Route path="/bebidas" component={MainRecipes} />
+          <Route path="/receitas/comida/:id" component={Profile} />
+          <Route path="/receitas/bebida/:id" component={Profile} />
+          <Route path="/receitas" component={MainRecipes} />
           <Route path="/profile" component={Profile} />
         </Switch>
       </Router>

@@ -1,0 +1,18 @@
+.recipes-categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
+}
+
+.category-button {
+  background: #C4C4C4;
+  border: 1px solid darkgray;
+  height: 35px;
+  margin: 3px;
+  width: 105px;
+}
+
+.category-button:focus {
+  border: 3px solid gray;
+}
