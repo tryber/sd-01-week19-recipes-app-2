@@ -2,32 +2,44 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 
-// function explorarBebidas
-function ExplorarReceitas({ location: { pathname } }) {
-  if (pathname === '/recipes' || pathname === '/comidas') {
-    getRandomRecipes('meal', 12, setRecipesResults);
-  } else {
-    getRandomRecipes('cocktail', 12, setRecipesResults);
+function generateButton(number, pathname, type, title) {
+  return (
+    <button className={`btn ${number}`}>
+      <Link className="link" to={`/${pathname}/${type}`}>
+        {title}
+      </Link>
+    </button>
+  )
+}
+
+function isComidasOrBebidas(pathname){
+  const title = {
+    "title1": "Por ingredientes",
+    "title3": "Por local de origem",
+    "title2": "Me surpreenda",
   }
+  if (pathname === '/explorar/comidas') {
+    return(
+      <div className="content-btn">
+        {generateButton("one", pathname, "ingredientes", title["title1"])}
+        {generateButton("two", pathname, "local", title["title2"])}
+        {generateButton("three", pathname, "random", title["title3"])}
+      </div>
+    )
+  } else {
+    return(
+      <div className="content-btn">
+        {generateButton("one", pathname, "ingredientes", title["title1"])}
+        {generateButton("two", pathname, "local", title["title2"])}
+      </div>
+    )
+  }
+}
+
+function ExplorarReceitas({ location: { pathname } }) {
   return (
     <div>
-      <div className="content-btn">
-        <button className="btn one">
-            <Link className="link" to="/bebidas/ingredientes">
-              Por Ingrediente
-            </Link>
-          </button>
-          <button className="btn two">
-          <Link className="link" to="/comidas/local">
-            Por local de origem
-          </Link>
-        </button>
-          <button className="btn two">
-            <Link className="link" to="/bebidas/random">
-              Me surpreenda!
-            </Link>
-        </button>
-      </div>
+      {isComidasOrBebidas(pathname)}
       <Footer />
     </div>
   );
