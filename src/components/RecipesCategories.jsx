@@ -3,7 +3,7 @@ import { AppContext } from '../context/AppContext';
 import '../style/RecipesCategories.css';
 
 function setCategory(category) {
-  console.log(category)
+  console.log(category);
 }
 
 function RecipesCategories() {

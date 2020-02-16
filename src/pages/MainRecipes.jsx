@@ -9,7 +9,12 @@ import Footer from '../components/Footer';
 import '../style/MainRecipes.css';
 
 function MainRecipes({ location: { pathname } }) {
-  const { recipesResults, setRecipesResults, recipesCategories, setRecipesCategories } = useContext(AppContext);
+  const {
+    recipesResults,
+    setRecipesResults,
+    recipesCategories,
+    setRecipesCategories,
+  } = useContext(AppContext);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {

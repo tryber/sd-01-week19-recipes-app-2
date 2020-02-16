@@ -41,7 +41,7 @@ export const getIngredientImage = (type, endPoint) => {
 };
 
 export const getRecipeImage = (type, endPoint) => {
-  let recipeType = (type === 'meal') ? 'meals' : 'drink';
+  const recipeType = (type === 'meal') ? 'meals' : 'drink';
   const src = `https://www.the${type}db.com/images/media/${recipeType}/${endPoint}/preview`;
   return src;
 };
@@ -51,6 +51,6 @@ export const getRecipeCategories = async (type, setCategories) => {
   if (type === 'meal') categoriesList = categoriesList.meals;
   else categoriesList = categoriesList.drinks;
 
-  const categories = categoriesList.filter((category, index) => index < 5).map((category) => category.strCategory);
+  const categories = categoriesList.filter((c, index) => index < 5).map((ctg) => ctg.strCategory);
   setCategories(categories);
-}
+};
