@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import explorer from '../img/explorer.svg';
-import food from '../img/food.svg';
-import drink from '../img/drink.svg';
+import explorar from '../img/explorar.svg';
+import comidas from '../img/comidas.svg';
+import bebidas from '../img/bebidas.svg';
 import '../style/Footer.css';
 
 function generateLiFooter(link, img) {
@@ -21,9 +21,9 @@ export default function Footer() {
   return (
     <div className="content-footer">
       <ul className="footer">
-        {generateLiFooter('food', food)}
-        {generateLiFooter('explorer', explorer)}
-        {generateLiFooter('drink', drink)}
+        {generateLiFooter('bebidas', bebidas)}
+        {generateLiFooter('explorar', explorar)}
+        {generateLiFooter('comidas', comidas)}
       </ul>
     </div>
   );

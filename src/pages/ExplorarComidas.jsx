@@ -1,24 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
-import '../style/Explorer.css';
 
 function ExplorarComidas() {
   return (
     <div>
       <div className="content-btn">
         <button className="btn one">
-          <Link className="link" to="/ingredientes">
+          <Link className="link" to="comidas/ingredientes">
             Por Ingrediente
           </Link>
         </button>
         <button className="btn two">
-          <Link className="link" to="/local">
+          <Link className="link" to="comidas/local">
             Por local de origem
           </Link>
         </button>
         <button className="btn two">
-          <Link className="link" to="/random">
+          <Link className="link" to="comidas/random">
             Me surpreenda!
           </Link>
         </button>

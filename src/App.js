@@ -6,9 +6,9 @@ import {
 } from 'react-router-dom';
 import AppProvider from './context/AppContext';
 import Login from './pages/Login';
-import Explorer from './pages/Explorer';
-import ExplorarComidas from './pages/Explorar-comidas';
-import ExplorarBebidas from './pages/Explorar-bebidas';
+import Explorar from './pages/Explorar';
+import ExplorarComidas from './pages/ExplorarComidas';
+import ExplorarBebidas from './pages/ExplorarBebidas';
 
 
 function App() {
@@ -17,9 +17,11 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Login} />
-          <Route path="/explorer" component={Explorer} />
-          <Route path="/explorer" component={ExplorarComidas} />
-          <Route path="/explorer" component={ExplorarBebidas} />
+          <Route exact path="/explorar" component={Explorar} />
+          <Route path="/explorar/comidas">
+            <ExplorarComidas />
+          </Route>
+          <Route exact path="/explorar/bebidas" component={ExplorarBebidas}  />
         </Switch>
       </Router>
     </AppProvider>
