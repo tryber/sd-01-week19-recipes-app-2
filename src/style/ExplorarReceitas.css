@@ -1,0 +1,19 @@
+.btnreceitas{
+  width: 161px;
+  background-color: white;
+  border: 0;
+  border-radius: 6px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 24px;
+  font-style: normal;
+  height: 82px;
+  line-height: 37px;
+  margin-left: 14px;
+  text-align: left;
+}
+.content-btn-receitas{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+

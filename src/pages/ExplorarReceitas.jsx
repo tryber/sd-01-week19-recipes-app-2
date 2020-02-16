@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
+import '../style/ExplorarReceitas.css';
 
 function generateButton(number, pathname, type, title) {
   return (
-    <button className={`btn ${number}`}>
+    <button className={`btnreceitas ${number}`}>
       <Link className="link" to={`/${pathname}/${type}`}>
         {title}
       </Link>
@@ -21,14 +22,14 @@ function isComidasOrBebidas(pathname) {
   };
   if (pathname === '/explorar/comidas') {
     return (
-      <div className="content-btn">
+      <div className="content-btn-receitas">
         {generateButton('one', pathname, 'ingredientes', title.title1)}
         {generateButton('two', pathname, 'local', title.title2)}
         {generateButton('three', pathname, 'random', title.title3)}
       </div>
     );
   } return (
-    <div className="content-btn">
+    <div className="content-btn-receitas">
       {generateButton('one', pathname, 'ingredientes', title.title1)}
       {generateButton('two', pathname, 'local', title.title2)}
     </div>
