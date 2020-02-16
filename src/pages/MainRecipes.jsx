@@ -7,7 +7,6 @@ import RecipeCard from '../components/RecipeCard';
 // import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../style/MainRecipes.css';
-import { searchByCategory } from '../services/APIs';
 
 function MainRecipes({ location: { pathname } }) {
   const {
@@ -35,8 +34,8 @@ function MainRecipes({ location: { pathname } }) {
   useEffect(() => {
     if (categoryFilter === 'All') setFilteredRecipes(recipesResults);
     else {
-      const recipesFiltered = recipesResults.filter((recipe) => recipe.strCategory === categoryFilter);
-      setFilteredRecipes(recipesFiltered);
+      const filtered = recipesResults.filter((recipe) => recipe.strCategory === categoryFilter);
+      setFilteredRecipes(filtered);
     }
     setLoading(false);
   }, [recipesResults, categoryFilter]);
