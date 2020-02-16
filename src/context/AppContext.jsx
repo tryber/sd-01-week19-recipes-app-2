@@ -7,7 +7,8 @@ export default function AppProvider({ children }) {
   // recipes State
   const [recipesResults, setRecipesResults] = useState();
   const [recipesCategories, setRecipesCategories] = useState();
-  const [categoryFilter, setCategoryFilter] = useState('');
+  const [categoryFilter, setCategoryFilter] = useState('All');
+  const [filteredRecipes, setFilteredRecipes] = useState();
 
   // header States
   const [displayUserIcon, setDisplayUserIcon] = useState(true);
@@ -20,6 +21,7 @@ export default function AppProvider({ children }) {
     recipesResults,
     recipesCategories,
     categoryFilter,
+    filteredRecipes,
     displayUserIcon,
     displaySearchIcon,
     displaySearchBar,
@@ -28,6 +30,7 @@ export default function AppProvider({ children }) {
     setRecipesResults,
     setRecipesCategories,
     setCategoryFilter,
+    setFilteredRecipes,
     setDisplayUserIcon,
     setDisplaySearchIcon,
     setTitle,

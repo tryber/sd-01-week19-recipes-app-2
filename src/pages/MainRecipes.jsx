@@ -7,6 +7,7 @@ import RecipeCard from '../components/RecipeCard';
 // import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../style/MainRecipes.css';
+import { searchByCategory } from '../services/APIs';
 
 function MainRecipes({ location: { pathname } }) {
   const {
@@ -14,6 +15,9 @@ function MainRecipes({ location: { pathname } }) {
     setRecipesResults,
     recipesCategories,
     setRecipesCategories,
+    categoryFilter,
+    filteredRecipes,
+    setFilteredRecipes,
   } = useContext(AppContext);
   const [isLoading, setLoading] = useState(true);
 
@@ -29,10 +33,15 @@ function MainRecipes({ location: { pathname } }) {
   }, [pathname]);
 
   useEffect(() => {
+    if (categoryFilter === 'All') setFilteredRecipes(recipesResults);
+    else {
+      const recipesFiltered = recipesResults.filter((recipe) => recipe.strCategory === categoryFilter);
+      setFilteredRecipes(recipesFiltered);
+    }
     setLoading(false);
-  }, [recipesResults]);
+  }, [recipesResults, categoryFilter]);
 
-  if (!recipesResults || !recipesCategories || isLoading) {
+  if (!filteredRecipes || !recipesResults || !recipesCategories || isLoading) {
     return (
       <div className="main-recipes">
         <h1>Main Recipes</h1>
@@ -45,7 +54,7 @@ function MainRecipes({ location: { pathname } }) {
       {/* <Header /> */}
       <RecipesCategories />
       <div className="recipes-list">
-        {recipesResults.map((recipe, index) => (
+        {filteredRecipes && filteredRecipes.map((recipe, index) => (
           <RecipeCard key={`${recipe.strSource}${index * 2}`} recipe={recipe} index={index} />
         ))}
       </div>

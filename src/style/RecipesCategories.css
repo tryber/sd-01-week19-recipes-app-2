@@ -5,7 +5,7 @@
   margin: 10px;
 }
 
-.category-button {
+.recipes-categories .category-button {
   background: #c4c4c4;
   border: 1px solid darkgray;
   height: 35px;
@@ -13,7 +13,11 @@
   width: 105px;
 }
 
-.category-button:focus {
+.recipes-categories .selected {
+  border: 3px solid gray;
+}
+
+.recipes-categories .category-button:focus {
   border: 3px solid gray;
   outline: none;
 }
