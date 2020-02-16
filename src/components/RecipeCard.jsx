@@ -5,7 +5,7 @@ import '../style/RecipeCard.css';
 
 function mealCard(recipe, index) {
   return (
-    <Link to={`/receitas/comidas/${recipe.idMeal}`} className="recipe-container">
+    <Link to={`/receitas/comida/${recipe.idMeal}`} className="recipe-container">
       <div className="recipe-card">
         <img
           className="recipe-image"
@@ -29,7 +29,7 @@ function RecipeCard({ recipe, index }) {
     return mealCard(recipe, index);
   }
   return (
-    <Link to={`/receitas/bebidas/${recipe.idDrink}`} className="recipe-container">
+    <Link to={`/receitas/bebida/${recipe.idDrink}`} className="recipe-container">
       <div className="recipe-card">
         <img
           className="recipe-image"

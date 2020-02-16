@@ -1,0 +1,23 @@
+.recipes-categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
+}
+
+.recipes-categories .category-button {
+  background: #c4c4c4;
+  border: 1px solid darkgray;
+  height: 35px;
+  margin: 3px;
+  width: 105px;
+}
+
+.recipes-categories .selected {
+  border: 3px solid gray;
+}
+
+.recipes-categories .category-button:focus {
+  border: 3px solid gray;
+  outline: none;
+}
