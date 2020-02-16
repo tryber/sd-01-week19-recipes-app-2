@@ -18,7 +18,7 @@ function isComidasOrBebidas(pathname) {
     title3: 'Por local de origem',
     title2: 'Me surpreenda',
   };
-  if (pathname === '/explorar/comidas') { 
+  if (pathname === '/explorar/comidas') {
     return (
       <div className="content-btn">
         {generateButton('one', pathname, 'ingredientes', title.title1)}
@@ -42,5 +42,11 @@ function ExplorarReceitas({ location: { pathname } }) {
     </div>
   );
 }
+
+ExplorarReceitas.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default ExplorarReceitas;
