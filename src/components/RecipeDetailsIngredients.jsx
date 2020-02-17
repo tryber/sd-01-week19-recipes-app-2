@@ -23,6 +23,6 @@ RecipeDetailsIngredients.propTypes = {
     strIngredient1: PropTypes.string.isRequired,
     strMeasure1: PropTypes.string.isRequired,
   }).isRequired,
-}
+};
 
 export default RecipeDetailsIngredients;

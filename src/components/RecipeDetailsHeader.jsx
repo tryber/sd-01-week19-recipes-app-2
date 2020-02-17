@@ -24,6 +24,6 @@ RecipeDetailsHeader.propTypes = {
     strDrink: PropTypes.string,
     strCategory: PropTypes.string.isRequired,
   }).isRequired,
-}
+};
 
 export default RecipeDetailsHeader;

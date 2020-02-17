@@ -14,6 +14,6 @@ RecipeDetailsInstructions.propTypes = {
   recipe: PropTypes.shape({
     strInstructions: PropTypes.string.isRequired,
   }).isRequired,
-}
+};
 
 export default RecipeDetailsInstructions;

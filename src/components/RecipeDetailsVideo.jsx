@@ -35,6 +35,6 @@ RecipeDetailsVideo.propTypes = {
     strYoutube: PropTypes.string,
     strVideo: PropTypes.string,
   }).isRequired,
-}
+};
 
 export default RecipeDetailsVideo;
