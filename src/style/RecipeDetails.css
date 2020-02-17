@@ -19,12 +19,12 @@
 }
 
 .recipe-details .details-category {
-  color: #a9a9a9;
+  color: darkgray;
   margin: 5px 0 5px 8px;
 }
 
 .recipe-details .details-icons {
-  margin: 0 10px 8px 10px;
+  margin: 0 10px 8px;
   position: static;
 }
 

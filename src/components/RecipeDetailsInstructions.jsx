@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function RecipeDetailsInstructions({ recipe }) {
   return (
@@ -7,6 +8,12 @@ function RecipeDetailsInstructions({ recipe }) {
       <p className="details-box padding">{recipe.strInstructions}</p>
     </div>
   );
+}
+
+RecipeDetailsInstructions.propTypes = {
+  recipe: PropTypes.shape({
+    strInstructions: PropTypes.string.isRequired,
+  }).isRequired,
 }
 
 export default RecipeDetailsInstructions;

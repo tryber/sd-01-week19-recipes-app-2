@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import share from '../img/share.svg';
 import heart from '../img/heart.svg';
 
@@ -10,11 +11,19 @@ function RecipeDetailsHeader({ recipe }) {
         <p className="details-category">{recipe.strCategory}</p>
       </div>
       <div className="details-icons">
-        <img className="details-icons" src={share} alt="share"/>
-        <img className="details-icons" src={heart} alt="heart"/>
+        <img className="details-icons" src={share} alt="share" />
+        <img className="details-icons" src={heart} alt="heart" />
       </div>
     </div>
   );
+}
+
+RecipeDetailsHeader.propTypes = {
+  recipe: PropTypes.shape({
+    strMeal: PropTypes.string,
+    strDrink: PropTypes.string,
+    strCategory: PropTypes.string.isRequired,
+  }).isRequired,
 }
 
 export default RecipeDetailsHeader;

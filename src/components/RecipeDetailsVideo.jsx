@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import YouTube from 'react-youtube';
 
 function renderYoutubeVideo(recipe) {
@@ -27,6 +28,13 @@ function RecipeDetailsVideo({ recipe }) {
       {renderYoutubeVideo(recipe)}
     </div>
   );
+}
+
+RecipeDetailsVideo.propTypes = {
+  recipe: PropTypes.shape({
+    strYoutube: PropTypes.string,
+    strVideo: PropTypes.string,
+  }).isRequired,
 }
 
 export default RecipeDetailsVideo;

@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { searchById } from '../services/APIs';
 import { AppContext } from '../context/AppContext';
 import RecipeDetailsHeader from '../components/RecipeDetailsHeader';
@@ -13,7 +14,7 @@ function RecipeDetails({ location: { pathname } }) {
 
   useEffect(() => {
     const parameter = pathname.split('/');
-    if(parameter[2] === 'comida') searchById('meal', parameter[3], setRecipeDetails);
+    if (parameter[2] === 'comida') searchById('meal', parameter[3], setRecipeDetails);
     else searchById('cocktail', parameter[3], setRecipeDetails);
   }, [pathname]);
 
@@ -43,5 +44,11 @@ function RecipeDetails({ location: { pathname } }) {
     </div>
   );
 }
+
+RecipeDetails.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default RecipeDetails;
