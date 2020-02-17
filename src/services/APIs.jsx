@@ -36,10 +36,18 @@ export const searchByFirstLetter = (type, parameter) => {
 };
 
 export const searchByCategory = async (type, parameter, setRecipesResults) => {
-  let recipes = await fetch(`https://www.the${type}db.com/api/json/v1/1/filter.php?c=${parameter}`);
+  let recipes = await fetch(`https://www.the${type}db.com/api/json/v1/1/filter.php?c=${parameter}`).then((data) => data.json());
   if (type === 'meal') recipes = recipes.meals;
   else recipes = recipes.drinks;
   return setRecipesResults(recipes);
+};
+
+export const searchById = async (type, id, setRecipeDetails) => {
+  let details = await fetch(`https://www.the${type}db.com/api/json/v1/1/lookup.php?i=${id}`).then((data) => data.json());
+  if (type === 'meal') details = details.meals;
+  else details = details.drinks;
+  console.log(details[0]);
+  setRecipeDetails(details[0]);
 };
 
 export const getIngredientImage = (type, endPoint) => {

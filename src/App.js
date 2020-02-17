@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Explorer from './pages/Explorar';
 import MainRecipes from './pages/MainRecipes';
 import Profile from './pages/Profile';
+import RecipeDetails from './pages/RecipeDetails';
 
 function App() {
   return (
@@ -17,8 +18,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={Login} />
           <Route path="/explorer" component={Explorer} />
-          <Route path="/receitas/comida/:id" component={Profile} />
-          <Route path="/receitas/bebida/:id" component={Profile} />
+          <Route path="/receitas/comida/:id" component={RecipeDetails} />
+          <Route path="/receitas/bebida/:id" component={RecipeDetails} />
           <Route path="/receitas" component={MainRecipes} />
           <Route path="/profile" component={Profile} />
         </Switch>
