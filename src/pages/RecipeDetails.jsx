@@ -6,14 +6,13 @@ import RecipeDetailsHeader from '../components/RecipeDetailsHeader';
 import RecipeDetailsIngredients from '../components/RecipeDetailsIngredients';
 import RecipeDetailsInstructions from '../components/RecipeDetailsInstructions';
 import RecipeDetailsVideo from '../components/RecipeDetailsVideo';
-import '../style/RecipeDetails.css';
 import RecipeDetailsRecommendation from '../components/RecipeDetailsRecommendation';
+import '../style/RecipeDetails.css';
 
 function RecipeDetails({ location: { pathname } }) {
   const {
     recipeDetails,
     setRecipeDetails,
-    recipeRecommendation,
     setRecipeRecommendation,
   } = useContext(AppContext);
   const [isLoading, setLoading] = useState(true);
