@@ -4,11 +4,15 @@ import PropTypes from 'prop-types';
 export const AppContext = createContext();
 
 export default function AppProvider({ children }) {
-  // recipes State
+  // recipes States
   const [recipesResults, setRecipesResults] = useState();
   const [recipesCategories, setRecipesCategories] = useState();
   const [categoryFilter, setCategoryFilter] = useState('All');
   const [filteredRecipes, setFilteredRecipes] = useState();
+
+  // recipe details States
+  const [recipeDetails, setRecipeDetails] = useState({});
+  const [recipeRecommendation, setRecipeRecommendation] = useState();
 
   // header States
   const [displayUserIcon, setDisplayUserIcon] = useState(true);
@@ -22,6 +26,8 @@ export default function AppProvider({ children }) {
     recipesCategories,
     categoryFilter,
     filteredRecipes,
+    recipeDetails,
+    recipeRecommendation,
     displayUserIcon,
     displaySearchIcon,
     displaySearchBar,
@@ -31,6 +37,8 @@ export default function AppProvider({ children }) {
     setRecipesCategories,
     setCategoryFilter,
     setFilteredRecipes,
+    setRecipeDetails,
+    setRecipeRecommendation,
     setDisplayUserIcon,
     setDisplaySearchIcon,
     setTitle,
