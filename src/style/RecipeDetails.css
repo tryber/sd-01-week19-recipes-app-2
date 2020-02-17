@@ -1,5 +1,5 @@
 .recipe-details .details-image {
-  height: 220px;
+  height: auto;
   width: 100%;
 }
 
@@ -19,8 +19,8 @@
 }
 
 .recipe-details .details-category {
-  margin: 5px 0 5px 8px;
   color: #a9a9a9;
+  margin: 5px 0 5px 8px;
 }
 
 .recipe-details .details-icons {
@@ -29,18 +29,22 @@
 }
 
 .recipe-details .details-subtitle {
-  margin: 7px 8px;
   font-size: 20px;
+  margin: 7px 8px;
 }
 
 .recipe-details .details-box {
   background: #ececec;
   border-radius: 5px;
-  margin: 0 10px;
   display: flex;
-  padding: 5px;
   flex-direction: column;
   font-size: 13px;
+  margin: 0 10px;
+  padding: 5px;
+}
+
+.recipe-details .padding {
+  padding: 10px;
 }
 
 .recipe-details .details-box p {
