@@ -50,3 +50,11 @@
 .recipe-details .details-box p {
   margin: 3px;
 }
+
+.recipe-details .details-recommendation {
+  background: #ececec;
+  border-radius: 5px;
+  display: flex;
+  overflow: auto;
+  margin: 0 10px;
+}

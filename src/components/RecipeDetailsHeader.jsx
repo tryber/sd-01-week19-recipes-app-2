@@ -22,7 +22,7 @@ RecipeDetailsHeader.propTypes = {
   recipe: PropTypes.shape({
     strMeal: PropTypes.string,
     strDrink: PropTypes.string,
-    strCategory: PropTypes.string.isRequired,
+    strCategory: PropTypes.string,
   }).isRequired,
 };
 

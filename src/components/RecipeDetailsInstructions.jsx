@@ -12,7 +12,7 @@ function RecipeDetailsInstructions({ recipe }) {
 
 RecipeDetailsInstructions.propTypes = {
   recipe: PropTypes.shape({
-    strInstructions: PropTypes.string.isRequired,
+    strInstructions: PropTypes.string,
   }).isRequired,
 };
 

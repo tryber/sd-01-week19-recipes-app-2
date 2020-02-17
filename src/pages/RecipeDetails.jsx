@@ -7,22 +7,29 @@ import RecipeDetailsIngredients from '../components/RecipeDetailsIngredients';
 import RecipeDetailsInstructions from '../components/RecipeDetailsInstructions';
 import RecipeDetailsVideo from '../components/RecipeDetailsVideo';
 import '../style/RecipeDetails.css';
+import RecipeDetailsRecommendation from '../components/RecipeDetailsRecommendation';
 
 function RecipeDetails({ location: { pathname } }) {
-  const { recipeDetails, setRecipeDetails } = useContext(AppContext);
+  const {
+    recipeDetails,
+    setRecipeDetails,
+    recipeRecommendation,
+    setRecipeRecommendation,
+  } = useContext(AppContext);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     const parameter = pathname.split('/');
-    if (parameter[2] === 'comida') searchById('meal', parameter[3], setRecipeDetails);
-    else searchById('cocktail', parameter[3], setRecipeDetails);
+    if (parameter[2] === 'comida') searchById('meal', parameter[3], setRecipeDetails, setRecipeRecommendation);
+    else searchById('cocktail', parameter[3], setRecipeDetails, setRecipeRecommendation);
   }, [pathname]);
 
   useEffect(() => {
     setLoading(false);
   }, [recipeDetails]);
 
-  if (recipeDetails === {} || isLoading) {
+  if (!recipeDetails || isLoading) {
     return (
       <div className="main-recipes">
         <h1>Recipe Details</h1>
@@ -41,6 +48,7 @@ function RecipeDetails({ location: { pathname } }) {
       <RecipeDetailsIngredients recipe={recipeDetails} />
       <RecipeDetailsInstructions recipe={recipeDetails} />
       <RecipeDetailsVideo recipe={recipeDetails} />
+      <RecipeDetailsRecommendation />
     </div>
   );
 }

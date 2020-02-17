@@ -42,12 +42,16 @@ export const searchByCategory = async (type, parameter, setRecipesResults) => {
   return setRecipesResults(recipes);
 };
 
-export const searchById = async (type, id, setRecipeDetails) => {
+export const searchById = async (type, id, setRecipeDetails, setRecipeRecommendation) => {
   let details = await fetch(`https://www.the${type}db.com/api/json/v1/1/lookup.php?i=${id}`).then((data) => data.json());
-  if (type === 'meal') details = details.meals;
-  else details = details.drinks;
-  console.log(details[0]);
-  setRecipeDetails(details[0]);
+  if (type === 'meal') {
+    getRandomRecipes('cocktail', 6, setRecipeRecommendation);
+    details = details.meals;
+  } else {
+    getRandomRecipes('meal', 6, setRecipeRecommendation);
+    details = details.drinks;
+  }
+  return setRecipeDetails(details[0]);
 };
 
 export const getIngredientImage = (type, endPoint) => {

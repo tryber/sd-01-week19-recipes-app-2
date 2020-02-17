@@ -12,6 +12,7 @@ export default function AppProvider({ children }) {
 
   // recipe details States
   const [recipeDetails, setRecipeDetails] = useState({});
+  const [recipeRecommendation, setRecipeRecommendation] = useState();
 
   // header States
   const [displayUserIcon, setDisplayUserIcon] = useState(true);
@@ -26,6 +27,7 @@ export default function AppProvider({ children }) {
     categoryFilter,
     filteredRecipes,
     recipeDetails,
+    recipeRecommendation,
     displayUserIcon,
     displaySearchIcon,
     displaySearchBar,
@@ -36,6 +38,7 @@ export default function AppProvider({ children }) {
     setCategoryFilter,
     setFilteredRecipes,
     setRecipeDetails,
+    setRecipeRecommendation,
     setDisplayUserIcon,
     setDisplaySearchIcon,
     setTitle,

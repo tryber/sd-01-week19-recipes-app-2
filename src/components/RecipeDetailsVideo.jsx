@@ -18,7 +18,7 @@ function renderYoutubeVideo(recipe) {
       />
     );
   }
-  return <div>Não possui video.</div>;
+  return <div className="details-box">Não possui video.</div>;
 }
 
 function RecipeDetailsVideo({ recipe }) {

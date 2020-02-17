@@ -20,8 +20,8 @@ function RecipeDetailsIngredients({ recipe }) {
 
 RecipeDetailsIngredients.propTypes = {
   recipe: PropTypes.shape({
-    strIngredient1: PropTypes.string.isRequired,
-    strMeasure1: PropTypes.string.isRequired,
+    strIngredient1: PropTypes.string,
+    strMeasure1: PropTypes.string,
   }).isRequired,
 };
 
