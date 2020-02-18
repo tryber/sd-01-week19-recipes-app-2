@@ -22,7 +22,7 @@ export default function AppProvider({ children }) {
     setDisplaySearchIcon,
     setTitle,
     displayHeader,
-    setDisplayHeader
+    setDisplayHeader,
   };
 
   return (

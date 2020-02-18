@@ -7,18 +7,18 @@ import { AppContext } from '../context/AppContext';
 import '../style/Header.css';
 
 export default function Header() {
-  const { context: {
+  const {
     displayUserIcon,
     displaySearchIcon,
     displaySearchBar,
     title,
     displayHeader,
     displaySearchBarToggle,
-  } } = useContext(AppContext);
+  } = useContext(AppContext);
 
   return (
     <div>
-      <div className={`header-container ${!displayHeader ? 'display-none' : undefined }`}>
+      <div className={`header-container ${!displayHeader ? 'display-none' : undefined}`}>
         {displayUserIcon && (
           <Link to="/profile">
             <UserIcon />
@@ -31,5 +31,5 @@ export default function Header() {
         {displaySearchBar && <SearchBar />}
       </div>
     </div>
-  )
+  );
 }
