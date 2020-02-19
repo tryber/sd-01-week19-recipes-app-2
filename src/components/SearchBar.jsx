@@ -14,7 +14,7 @@ export function debounce(func, wait) {
 export function RenderRadioButtons(props) {
   const { setCheckedRadio } = props;
   return (
-    <>
+    <div>
       <RadioButton
         onClick={setCheckedRadio}
         data-testid="ingredient-search-radio"
@@ -39,7 +39,7 @@ export function RenderRadioButtons(props) {
       >
         Primeira Letra
       </RadioButton>
-    </>
+    </div>
   );
 }
 

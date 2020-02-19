@@ -1,50 +1,50 @@
 .search-bar {
-  display: flex;
-  align-self: flex-end;
-  flex-direction: column;
-  background: white;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  text-align: center;
-  width: 100%;
+	align-self: flex-end;
+	background: white;
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	width: 100%;
 }
 
 .search-bar-form {
-  display: flex;
-  margin: 10px;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin: 10px;
+	width: 100%;
 }
 
 fieldset {
-  display: flex;
-  flex-direction: row;
-  border: none;
+	border: none;
+	display: flex;
+	flex-direction: row;
 }
 
 .fieldset-flex {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
 }
 
 .search-input {
-  background: white;
-  border: 1px solid black;
-  box-sizing: border-box;
-  display: inline-block;
-  align-self: center;
-  height: 41px;
-  width: 80%;
+	align-self: center;
+	background: white;
+	border: 1px solid black;
+	box-sizing: border-box;
+	display: inline-block;
+	height: 41px;
+	width: 80%;
 }
 
 .search-bar label {
-  align-items: flex-end;
-  color: black;
-  display: flex;
-  font-family: Roboto, sans-serif;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 21px;
+	align-items: flex-end;
+	color: black;
+	display: flex;
+	font-family: Roboto, sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 21px;
 }

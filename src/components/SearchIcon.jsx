@@ -11,8 +11,9 @@ export default function SearchIcon(props) {
       alt="Search Icon"
       data-testid="search-top-btn"
       className="search-icon"
+      onClick={onClick}
     >
-      <img onClick={onClick} src={SearchImage} alt="search icon" />
+      <img src={SearchImage} alt="search icon" />
     </button>
   );
 }

@@ -16,7 +16,7 @@ export default function Header() {
   } = useContext(AppContext);
 
   return (
-    <>
+    <div>
       <div className={`header-container ${!displayHeader ? 'display-none' : undefined}`}>
         <div className="header-content">
           <UserIcon />
@@ -24,9 +24,9 @@ export default function Header() {
           {displaySearchIcon && <SearchIcon onClick={displaySearchBarToggle} />}
         </div>
       </div>
-      <>
+      <div>
         {displaySearchBar && <SearchBar />}
-      </>
-    </>
+      </div>
+    </div>
   );
 }
