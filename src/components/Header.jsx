@@ -19,9 +19,7 @@ export default function Header() {
     <>
       <div className={`header-container ${!displayHeader ? 'display-none' : undefined}`}>
         <div className="header-content">
-          <Link to="/profile">
-            <UserIcon />
-          </Link>
+          <UserIcon />
           <span data-testid="page-title" className="header-title">{title}</span>
           {displaySearchIcon && <SearchIcon onClick={displaySearchBarToggle} />}
         </div>

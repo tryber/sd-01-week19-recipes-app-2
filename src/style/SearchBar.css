@@ -38,7 +38,7 @@ fieldset {
   width: 80%;
 }
 
-label {
+.search-bar label {
   align-items: flex-end;
   color: black;
   display: flex;
