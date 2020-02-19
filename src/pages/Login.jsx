@@ -62,7 +62,7 @@ function Login() {
   const { setDisplayHeader } = useContext(AppContext);
   setDisplayHeader(true);
 
-  if (shouldRedirect) return <Redirect to="/recipes" />;
+  if (shouldRedirect) return <Redirect to="/receitas" />;
   return (
     <div className="login">
       <h1>Login</h1>
