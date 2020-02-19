@@ -4,7 +4,6 @@ import { getRandomRecipes, getRecipeCategories } from '../services/APIs';
 import { AppContext } from '../context/AppContext';
 import RecipesCategories from '../components/RecipesCategories';
 import RecipeCard from '../components/RecipeCard';
-// import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../style/MainRecipes.css';
 
@@ -16,19 +15,17 @@ function MainRecipes({ location: { pathname } }) {
     categoryFilter,
     filteredRecipes,
     setFilteredRecipes,
+    type,
   } = useContext(AppContext);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
-    if (pathname === '/receitas' || pathname === '/receitas/comidas') {
-      getRandomRecipes('meal', 12, setRecipesResults);
-      getRecipeCategories('meal', setRecipesCategories);
-    } else {
-      getRandomRecipes('cocktail', 12, setRecipesResults);
-      getRecipeCategories('cocktail', setRecipesCategories);
-    }
-  }, [pathname]);
+    getRandomRecipes(type, setRecipesResults);
+    getRecipeCategories(type, setRecipesCategories);
+    getRandomRecipes(type, setRecipesResults);
+    getRecipeCategories(type, setRecipesCategories);
+  }, [type]);
 
   useEffect(() => {
     if (categoryFilter === 'All') setFilteredRecipes(recipesResults);

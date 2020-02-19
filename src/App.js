@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
 } from 'react-router-dom';
@@ -25,6 +25,8 @@ function App() {
           <Route path="/explorar" component={ExplorarReceitas} />
           <Route path="/receitas/comida/:id" component={RecipeDetails} />
           <Route path="/receitas/bebida/:id" component={RecipeDetails} />
+          <Route path="/receitas/bebida/" component={MainRecipes} />
+          <Route path="/receitas/comida/" component={MainRecipes} />
           <Route path="/receitas" component={MainRecipes} />
           <Route path="/profile" component={Profile} />
         </Switch>

@@ -9,6 +9,7 @@ export default function AppProvider({ children }) {
   const [recipesCategories, setRecipesCategories] = useState();
   const [categoryFilter, setCategoryFilter] = useState('All');
   const [filteredRecipes, setFilteredRecipes] = useState();
+  const [type, setType] = useState('explorar');
 
   // recipe details States
   const [recipeDetails, setRecipeDetails] = useState({});
@@ -42,6 +43,8 @@ export default function AppProvider({ children }) {
     setTitle,
     displayHeader,
     setDisplayHeader,
+    type,
+    setType,
   };
 
   return (

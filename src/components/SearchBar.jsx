@@ -3,14 +3,6 @@ import PropTypes from 'prop-types';
 import RadioButton from './RadioButton';
 import '../style/SearchBar.css';
 
-export function debounce(func, wait) {
-  let timer = 600;
-  return function () {
-    clearTimeout(timer);
-    timer = setTimeout(func, wait);
-  };
-}
-
 export function RenderRadioButtons(props) {
   const { setCheckedRadio } = props;
   return (
@@ -29,7 +21,7 @@ export function RenderRadioButtons(props) {
         styleClass="radio-name"
         labelClass="label-name"
       >
-        Name
+        Nome
       </RadioButton>
       <RadioButton
         onClick={setCheckedRadio}
