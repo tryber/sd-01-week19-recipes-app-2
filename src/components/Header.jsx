@@ -17,18 +17,18 @@ export default function Header() {
 
   return (
     <>
-      <div className={`header-container ${!displayHeader ? 'display-none' : undefined }`}>
-          <div className="header-content">
-              <Link to="/profile">
-                <UserIcon />
-              </Link>
-            <span data-testid="page-title" className="header-title">{title}</span>
-            {displaySearchIcon && <SearchIcon onClick={displaySearchBarToggle} />}
-          </div>
+      <div className={`header-container ${!displayHeader ? 'display-none' : undefined}`}>
+        <div className="header-content">
+          <Link to="/profile">
+            <UserIcon />
+          </Link>
+          <span data-testid="page-title" className="header-title">{title}</span>
+          {displaySearchIcon && <SearchIcon onClick={displaySearchBarToggle} />}
+        </div>
       </div>
       <>
-      {displaySearchBar && <SearchBar />}
+        {displaySearchBar && <SearchBar />}
       </>
     </>
-  )
+  );
 }
