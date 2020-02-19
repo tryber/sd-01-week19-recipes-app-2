@@ -1,9 +1,10 @@
+button {
+  background: none;
+  border: none;
+}
+
 .search-icon {
-  background: url('../img/search 1.svg');
-  cursor: pointer;
+  align-self: flex-end;
   height: 30px;
-  left: 317px;
-  position: absolute;
-  top: 12px;
   width: 30px;
 }

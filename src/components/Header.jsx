@@ -8,7 +8,10 @@ import '../style/Header.css';
 
 export default function Header() {
   const {
+<<<<<<< HEAD
     displayUserIcon,
+=======
+>>>>>>> master
     displaySearchIcon,
     displaySearchBar,
     title,
@@ -17,6 +20,7 @@ export default function Header() {
   } = useContext(AppContext);
 
   return (
+<<<<<<< HEAD
     <div>
       <div className={`header-container ${!displayHeader ? 'display-none' : undefined}`}>
         {displayUserIcon && (
@@ -32,4 +36,21 @@ export default function Header() {
       </div>
     </div>
   );
+=======
+    <>
+      <div className={`header-container ${!displayHeader ? 'display-none' : undefined }`}>
+          <div className="header-content">
+              <Link to="/profile">
+                <UserIcon />
+              </Link>
+            <span data-testid="page-title" className="header-title">{title}</span>
+            {displaySearchIcon && <SearchIcon onClick={displaySearchBarToggle} />}
+          </div>
+      </div>
+      <>
+      {displaySearchBar && <SearchBar />}
+      </>
+    </>
+  )
+>>>>>>> master
 }

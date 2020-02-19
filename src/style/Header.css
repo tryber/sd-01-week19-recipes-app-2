@@ -1,34 +1,29 @@
 .header-container {
   background: #c4c4c4;
-  height: 58px;
-  left: 0;
-  position: absolute;
-  top: 0;
+  min-height: 58px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   width: 100%;
+  flex-wrap: nowrap;
+}
+
+.header-content {
+  display: flex;
+  margin-top: 10px;
+  align-content: center;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .header-title {
-  align-items: flex-end;
+  align-self: center;
   color: black;
   display: flex;
   font-family: Roboto, sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
-  height: 35px;
-  left: 123px;
   line-height: 35px;
-  position: absolute;
-  top: 12px;
   width: 115px;
-}
-
-.search-icon {
-  background: url('../img/search 1.svg');
-  cursor: pointer;
-  height: 30px;
-  left: 317px;
-  position: absolute;
-  top: 12px;
-  width: 30px;
 }

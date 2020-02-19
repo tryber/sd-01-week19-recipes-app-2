@@ -4,8 +4,17 @@ import PropTypes from 'prop-types';
 export const AppContext = createContext();
 
 export default function AppProvider({ children }) {
+  // recipes States
+  const [recipesResults, setRecipesResults] = useState();
+  const [recipesCategories, setRecipesCategories] = useState();
+  const [categoryFilter, setCategoryFilter] = useState('All');
+  const [filteredRecipes, setFilteredRecipes] = useState();
+
+  // recipe details States
+  const [recipeDetails, setRecipeDetails] = useState({});
+  const [recipeRecommendation, setRecipeRecommendation] = useState();
+
   // header States
-  const [displayUserIcon, setDisplayUserIcon] = useState(true);
   const [displaySearchIcon, setDisplaySearchIcon] = useState(true);
   const [displaySearchBar, setDisplaySearchBar] = useState(false);
   const [title, setTitle] = useState('Header');
@@ -13,12 +22,22 @@ export default function AppProvider({ children }) {
   const displaySearchBarToggle = () => setDisplaySearchBar(!displaySearchBar);
 
   const context = {
-    displayUserIcon,
+    recipesResults,
+    recipesCategories,
+    categoryFilter,
+    filteredRecipes,
+    recipeDetails,
+    recipeRecommendation,
     displaySearchIcon,
     displaySearchBar,
     title,
     displaySearchBarToggle,
-    setDisplayUserIcon,
+    setRecipesResults,
+    setRecipesCategories,
+    setCategoryFilter,
+    setFilteredRecipes,
+    setRecipeDetails,
+    setRecipeRecommendation,
     setDisplaySearchIcon,
     setTitle,
     displayHeader,
@@ -26,7 +45,7 @@ export default function AppProvider({ children }) {
   };
 
   return (
-    <AppContext.Provider value={{ context }}>
+    <AppContext.Provider value={context}>
       {children}
     </AppContext.Provider>
   );

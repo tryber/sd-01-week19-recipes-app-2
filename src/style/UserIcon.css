@@ -1,8 +1,6 @@
 .user-icon {
-  background: url('../img/user 1.svg');
+  align-self: flex-start;
+  background: url('../img/user-icon.svg');
   height: 30px;
-  left: 15px;
-  position: absolute;
-  top: 12px;
   width: 30px;
 }
