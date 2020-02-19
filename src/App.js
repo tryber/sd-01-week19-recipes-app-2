@@ -10,7 +10,9 @@ import Header from './components/Header';
 import './style/App.css';
 import Explorar from './pages/Explorar';
 import ExplorarReceitas from './pages/ExplorarReceitas';
-
+import MainRecipes from './pages/MainRecipes';
+import Profile from './pages/Profile';
+import RecipeDetails from './pages/RecipeDetails';
 
 function App() {
   return (
