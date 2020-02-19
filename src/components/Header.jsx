@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import UserIcon from './UserIcon';
 import SearchIcon from './SearchIcon';
 import SearchBar from './SearchBar';
@@ -16,19 +16,17 @@ export default function Header() {
   } = useContext(AppContext);
 
   return (
-    <>
+    <div>
       <div className={`header-container ${!displayHeader ? 'display-none' : undefined}`}>
         <div className="header-content">
-          <Link to="/profile">
-            <UserIcon />
-          </Link>
+          <UserIcon />
           <span data-testid="page-title" className="header-title">{title}</span>
           {displaySearchIcon && <SearchIcon onClick={displaySearchBarToggle} />}
         </div>
       </div>
-      <>
+      <div>
         {displaySearchBar && <SearchBar />}
-      </>
-    </>
+      </div>
+    </div>
   );
 }
