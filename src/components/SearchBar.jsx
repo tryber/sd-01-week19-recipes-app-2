@@ -4,10 +4,10 @@ import '../style/SearchBar.css';
 
 export function debounce(func, wait) {
   let timer = 600;
-  return function() {
-      clearTimeout(timer);
-      timer = setTimeout(func, wait);
-  }
+  return function () {
+    clearTimeout(timer);
+    timer = setTimeout(func, wait);
+  };
 }
 
 
@@ -16,14 +16,14 @@ export default function SearchBar() {
 
   useEffect(() => {
     console.log(checkedRadio);
-  }, [checkedRadio])
+  }, [checkedRadio]);
 
   return (
     <div className="search-bar">
       <form className="search-bar-form">
         <input data-testid="search-input" className="search-input" type="text" />
         <fieldset id="row-radio-buttons" className="row-radio-buttons">
-          <div className="fieldset-flex" >
+          <div className="fieldset-flex">
             <label htmlFor="ingredient-search-radio" className="label-ingredient">
               <input
                 name="row-radio-buttons"

@@ -3,45 +3,23 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../style/RecipeCard.css';
 
-function mealCard(recipe, index) {
-  return (
-    <Link to={`/receitas/comidas/${recipe.idMeal}`} className="recipe-container">
-      <div className="recipe-card">
-        <img
-          className="recipe-image"
-          recipe-testid={`${index}-card-img`}
-          src={recipe.strMealThumb}
-          alt="food recipe"
-        />
-        <p recipe-testid={`${index}-card-category`} className="recipe-category">
-          {recipe.strCategory}
-        </p>
-        <p recipe-testid={`${index}-card-name`} className="recipe-name">
-          {recipe.strMeal}
-        </p>
-      </div>
-    </Link>
-  );
-}
-
 function RecipeCard({ recipe, index }) {
-  if (recipe.idMeal) {
-    return mealCard(recipe, index);
-  }
+  let type = 'bebida';
+  if (recipe.idMeal) type = 'comida';
   return (
-    <Link to={`/receitas/bebidas/${recipe.idDrink}`} className="recipe-container">
+    <Link to={`/receitas/${type}/${recipe.idDrink || recipe.idMeal}`} className="recipe-container">
       <div className="recipe-card">
         <img
           className="recipe-image"
           recipe-testid={`${index}-card-img`}
-          src={recipe.strDrinkThumb}
-          alt="drink recipe"
+          src={recipe.strDrinkThumb || recipe.strMealThumb}
+          alt="recipe card"
         />
         <p recipe-testid={`${index}-card-category`} className="recipe-category">
           {recipe.strCategory}
         </p>
         <p recipe-testid={`${index}-card-name`} className="recipe-name">
-          {recipe.strDrink}
+          {recipe.strDrink || recipe.strMeal}
         </p>
       </div>
     </Link>
