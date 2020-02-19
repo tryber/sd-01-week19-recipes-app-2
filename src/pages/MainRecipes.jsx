@@ -23,8 +23,8 @@ function MainRecipes({ location: { pathname } }) {
     setLoading(true);
     getRandomRecipes(type, setRecipesResults);
     getRecipeCategories(type, setRecipesCategories);
-    getRandomRecipes(type, setRecipesResults);
-    getRecipeCategories(type, setRecipesCategories);
+    // getRandomRecipes(type, setRecipesResults);
+    // getRecipeCategories(type, setRecipesCategories);
   }, [type]);
 
   useEffect(() => {

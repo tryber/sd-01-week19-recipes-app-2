@@ -6,17 +6,17 @@ const multipleRecipes = async (randomRecipes, type, setRecipes) => {
         if (type === 'explorar') {
           recipesArray.push(meals);
           recipesArray.push(drinks);
-        } else if (type === 'receitas/comidas') {
+        } else if (type === '/receitas/comidas') {
           recipesArray.push(meals);
         } else {
           recipesArray.push(drinks);
         }
       });
-      recipesArray = recipesArray.flat();
-      const cleanArray = recipesArray.filter((recipe) => !!recipe === true);
-      setRecipes(cleanArray);
-      return localStorage.setItem('recipes', JSON.stringify(cleanArray));
     });
+  recipesArray = recipesArray.flat();
+  const cleanArray = recipesArray.filter((recipe) => !!recipe === true);
+  setRecipes(cleanArray);
+  // return localStorage.setItem('recipes', JSON.stringify(cleanArray));
 };
 
 export const getRandomRecipes = (type, setRecipes) => {
@@ -56,7 +56,7 @@ export const getRecipeCategories = async (type, setCategories) => {
       .then((categories) => categoriesList.push(categories.drinks));
   }
   const categories = categoriesList.flat()
-    .filter((c, index) => index < 11)
+    .filter((c, index) => index < 5)
     .map(({ strCategory }) => strCategory);
   setCategories(categories);
 };
