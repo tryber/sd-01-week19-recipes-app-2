@@ -22,7 +22,7 @@ function RecipeDetails({ location: { pathname } }) {
     const parameter = pathname.split('/');
     if (parameter[2] === 'comida') searchById('meal', parameter[3], setRecipeDetails, setRecipeRecommendation);
     else searchById('cocktail', parameter[3], setRecipeDetails, setRecipeRecommendation);
-  }, [pathname]);
+  }, [pathname, setRecipeDetails, setRecipeRecommendation]);
 
   useEffect(() => {
     setLoading(false);

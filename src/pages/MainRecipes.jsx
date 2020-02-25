@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { getRandomRecipes, getRecipeCategories } from '../services/APIs';
+import { getRandomRecipes } from '../services/APIs';
 import { AppContext } from '../context/AppContext';
 import RecipesCategories from '../components/RecipesCategories';
 import RecipeCard from '../components/RecipeCard';
@@ -8,24 +8,35 @@ import Footer from '../components/Footer';
 import '../style/MainRecipes.css';
 
 function MainRecipes({ location: { pathname } }) {
-  const [recipesResults, setRecipesResults] = useState(undefined);
   const {
+    recipesResults,
+    setRecipesResults,
     recipesCategories,
     setRecipesCategories,
     categoryFilter,
     filteredRecipes,
     setFilteredRecipes,
     type,
+    setType,
+    checkedRadio,
   } = useContext(AppContext);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
-    getRandomRecipes(type, setRecipesResults);
-    getRecipeCategories(type, setRecipesCategories);
-    // getRandomRecipes(type, setRecipesResults);
-    // getRecipeCategories(type, setRecipesCategories);
-  }, [type]);
+    if (pathname === '/receitas/bebidas/') {
+      setType('cocktail');
+    } else {
+      setType('meal');
+    }
+  }, [pathname, setType]);
+
+  useEffect(() => {
+    if (checkedRadio === '') {
+      setLoading(true);
+      getRandomRecipes(type, setRecipesResults, setRecipesCategories);
+    }
+  },
+  [checkedRadio, setLoading, setRecipesResults, setRecipesCategories, type]);
 
   useEffect(() => {
     if (categoryFilter === 'All') setFilteredRecipes(recipesResults);
@@ -34,7 +45,7 @@ function MainRecipes({ location: { pathname } }) {
       setFilteredRecipes(filtered);
     }
     setLoading(false);
-  }, [recipesResults, categoryFilter]);
+  }, [recipesResults, categoryFilter, setFilteredRecipes]);
 
   if (!filteredRecipes || !recipesResults || !recipesCategories || isLoading) {
     return (

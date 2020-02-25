@@ -9,7 +9,9 @@ export default function AppProvider({ children }) {
   const [recipesCategories, setRecipesCategories] = useState();
   const [categoryFilter, setCategoryFilter] = useState('All');
   const [filteredRecipes, setFilteredRecipes] = useState();
-  const [type, setType] = useState('explorar');
+  const [type, setType] = useState('meal');
+  const [updateFlag, setUpdateFlag] = useState(true);
+
 
   // recipe details States
   const [recipeDetails, setRecipeDetails] = useState({});
@@ -22,7 +24,14 @@ export default function AppProvider({ children }) {
   const [displayHeader, setDisplayHeader] = useState(true);
   const displaySearchBarToggle = () => setDisplaySearchBar(!displaySearchBar);
 
+  // searchbar States
+
+  const [checkedRadio, setCheckedRadio] = useState('');
+  const [searchFlag, setSearchFlag] = useState(false);
+
   const context = {
+    checkedRadio,
+    setCheckedRadio,
     recipesResults,
     recipesCategories,
     categoryFilter,
@@ -45,6 +54,10 @@ export default function AppProvider({ children }) {
     setDisplayHeader,
     type,
     setType,
+    searchFlag,
+    setSearchFlag,
+    updateFlag,
+    setUpdateFlag,
   };
 
   return (

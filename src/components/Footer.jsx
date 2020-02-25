@@ -6,11 +6,11 @@ import bebidas from '../img/bebidas.svg';
 import { AppContext } from '../context/AppContext';
 import '../style/Footer.css';
 
-export function generateLiFooter(link, img, callback) {
+export function generateLiFooter(link, img, setType) {
   return (
     <li>
       <Link to={`/${link}`}>
-        <button type="button" onClick={() => callback(`${link}`)}>
+        <button type="button" onClick={() => setType(`${link}`)}>
           <img className="img-footer" src={img} alt={img} />
         </button>
       </Link>
@@ -23,9 +23,9 @@ export default function Footer() {
   return (
     <div className="content-footer">
       <ul className="footer">
-        {generateLiFooter('receitas/bebidas', bebidas, setType)}
-        {generateLiFooter('explorar', explorar, setType)}
-        {generateLiFooter('receitas/comidas', comidas, setType)}
+        {generateLiFooter('receitas/bebidas', bebidas, () => setType('cocktail'))}
+        {generateLiFooter('explorar', explorar)}
+        {generateLiFooter('receitas/comidas', comidas, () => setType('meal'))}
       </ul>
     </div>
   );

@@ -16,17 +16,17 @@ function Profile() {
         <p className="user-email">{JSON.parse(localStorage.getItem('user')).email}</p>
         <div>
           <Link to="/done-recipes">
-            <button className="profile-button">
+            <button type="button" className="profile-button">
               Receitas Feitas
             </button>
           </Link>
           <Link to="/favorite-recipes">
-            <button className="profile-button">
+            <button type="button" className="profile-button">
               Receitas Favoritas
             </button>
           </Link>
           <Link to="/">
-            <button className="profile-button" onClick={clearStorageEmail}>
+            <button type="button" className="profile-button" onClick={clearStorageEmail}>
               Sair
             </button>
           </Link>
