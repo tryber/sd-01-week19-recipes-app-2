@@ -7,12 +7,12 @@ function Explorar() {
   return (
     <div>
       <div className="content-btn">
-        <button className="btn one">
+        <button type="button" className="btn one">
           <Link className="link" to="/explorar/comidas">
             Explorar Comidas
           </Link>
         </button>
-        <button className="btn two">
+        <button type="button" className="btn two">
           <Link className="link" to="/explorar/bebidas">
             Explorar Bebidas
           </Link>

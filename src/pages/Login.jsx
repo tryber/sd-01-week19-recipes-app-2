@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
+import { AppContext } from '../context/AppContext';
 import '../style/Login.css';
 
 function handleSubmit(event, setRedirect, userEmail) {
@@ -58,6 +59,9 @@ function inputPassword() {
 function Login() {
   const [shouldRedirect, setRedirect] = useState(false);
   const [userEmail, setUserEmail] = useState('');
+  const { setDisplayHeader } = useContext(AppContext);
+  setDisplayHeader(true);
+
   if (shouldRedirect) return <Redirect to="/receitas" />;
   return (
     <div className="login">

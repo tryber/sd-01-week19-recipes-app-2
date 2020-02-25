@@ -30,8 +30,12 @@ RecipeCard.propTypes = {
   index: PropTypes.number.isRequired,
   recipe: PropTypes.shape({
     idMeal: PropTypes.string,
-    strCategory: PropTypes.string.isRequired,
+    strCategory: PropTypes.string,
     strDrink: PropTypes.string,
+    idDrink: PropTypes.string,
+    strDrinkThumb: PropTypes.string,
+    strMealThumb: PropTypes.string,
+    strMeal: PropTypes.string,
   }).isRequired,
 };
 

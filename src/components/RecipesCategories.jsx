@@ -21,6 +21,7 @@ function RecipesCategories() {
   return (
     <div className="recipes-categories">
       <button
+        type="button"
         data-testid="All-category-filter"
         className="category-button selected"
         onClick={(e) => setCategory(e.target, categoryFilter, setCategoryFilter)}
@@ -30,6 +31,7 @@ function RecipesCategories() {
 
       {recipesCategories.map((category) => (
         <button
+          type="button"
           data-testid={`${category}-category-filter`}
           key={category}
           onClick={(e) => setCategory(e.target, categoryFilter, setCategoryFilter)}
