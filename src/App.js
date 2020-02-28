@@ -23,8 +23,7 @@ function App() {
           <Route exact path="/" component={Login} />
           <Route exact path="/explorar" component={Explorar} />
           <Route path="/explorar" component={ExplorarReceitas} />
-          <Route path="/receitas/comida/:id" component={RecipeDetails} />
-          <Route path="/receitas/bebida/:id" component={RecipeDetails} />
+          <Route path="/receitas/:bebidacomida/:id" component={RecipeDetails} />
           <Route path="/receitas" component={MainRecipes} />
           <Route path="/profile" component={Profile} />
         </Switch>
