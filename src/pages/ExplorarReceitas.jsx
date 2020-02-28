@@ -6,7 +6,7 @@ import '../style/ExplorarReceitas.css';
 
 function generateButton(number, pathname, type, title) {
   return (
-    <button className={`btnreceitas ${number}`}>
+    <button typeclassName={`btnreceitas ${number}`}>
       <Link className="link" to={`/${pathname}/${type}`}>
         {title}
       </Link>
