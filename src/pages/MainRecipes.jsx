@@ -4,13 +4,13 @@ import { getRandomRecipes, getRecipeCategories } from '../services/APIs';
 import { AppContext } from '../context/AppContext';
 import RecipesCategories from '../components/RecipesCategories';
 import RecipeCard from '../components/RecipeCard';
-// import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../style/MainRecipes.css';
 
 function MainRecipes({ location: { pathname } }) {
-  const [recipesResults, setRecipesResults] = useState(undefined);
   const {
+    recipesResults,
+    setRecipesResults,
     recipesCategories,
     setRecipesCategories,
     categoryFilter,
@@ -49,7 +49,6 @@ function MainRecipes({ location: { pathname } }) {
   }
   return (
     <div className="main-recipes">
-      {/* <Header /> */}
       <RecipesCategories />
       <div className="recipes-list">
         {filteredRecipes && filteredRecipes.map((recipe, index) => (
