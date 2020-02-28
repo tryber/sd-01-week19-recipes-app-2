@@ -9,7 +9,7 @@ import RecipeDetailsVideo from '../components/RecipeDetailsVideo';
 import RecipeDetailsRecommendation from '../components/RecipeDetailsRecommendation';
 import '../style/RecipeDetails.css';
 
-function RecipeDetails({ location: { pathname } }) {
+function RecipeDetails({ location: { pathname }, match: { params: { bebidacomida, id } } }) {
   const {
     recipeDetails,
     setRecipeDetails,
@@ -19,9 +19,8 @@ function RecipeDetails({ location: { pathname } }) {
 
   useEffect(() => {
     setLoading(true);
-    const parameter = pathname.split('/');
-    if (parameter[2] === 'comida') searchById('meal', parameter[3], setRecipeDetails, setRecipeRecommendation);
-    else searchById('cocktail', parameter[3], setRecipeDetails, setRecipeRecommendation);
+    if (bebidacomida === 'comida') searchById('meal', id, setRecipeDetails, setRecipeRecommendation);
+    else searchById('cocktail', id, setRecipeDetails, setRecipeRecommendation);
   }, [pathname]);
 
   useEffect(() => {
@@ -41,7 +40,7 @@ function RecipeDetails({ location: { pathname } }) {
       <img
         className="details-image"
         src={recipeDetails.strDrinkThumb || recipeDetails.strMealThumb}
-        alt="recipe"
+        alt="recipe preview"
       />
       <RecipeDetailsHeader recipe={recipeDetails} />
       <RecipeDetailsIngredients recipe={recipeDetails} />
