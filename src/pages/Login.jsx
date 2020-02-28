@@ -30,6 +30,7 @@ function formValidate() {
   buttonSubmit.disabled = true;
   return false;
 }
+
 function inputEmail(setUserEmail) {
   return (
     <input
@@ -44,6 +45,7 @@ function inputEmail(setUserEmail) {
     />
   );
 }
+
 function inputPassword() {
   return (
     <input
@@ -56,13 +58,14 @@ function inputPassword() {
     />
   );
 }
+
 function Login() {
   const [shouldRedirect, setRedirect] = useState(false);
   const [userEmail, setUserEmail] = useState('');
   const { setDisplayHeader } = useContext(AppContext);
-  setDisplayHeader(true);
+  setDisplayHeader(false);
 
-  if (shouldRedirect) return <Redirect to="/recipes" />;
+  if (shouldRedirect) return <Redirect to="/receitas" />;
   return (
     <div className="login">
       <h1>Login</h1>
