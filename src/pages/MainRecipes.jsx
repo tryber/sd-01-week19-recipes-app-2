@@ -70,15 +70,7 @@ function MainRecipes({ location: { pathname } }) {
       setUpdateRecipesFlag(false);
       setUpdateFiltersFlag(true);
     }
-  },
-  [
-    updateRecipesFlag,
-    type,
-    setRecipesCategories,
-    setRecipesResults,
-  ]);
 
-  useEffect(() => {
     if (categoryFilter === 'All') {
       setFilteredRecipes(recipesResults);
     } else {
@@ -86,9 +78,11 @@ function MainRecipes({ location: { pathname } }) {
         .filter((recipe) => recipe.strCategory === categoryFilter);
       setFilteredRecipes(filtered);
     }
+
     setLoading(false);
     setUpdateFiltersFlag(false);
-  }, [recipesResults, updateFiltersFlag, categoryFilter, setFilteredRecipes]);
+  }, [recipesResults, updateFiltersFlag, categoryFilter, setFilteredRecipes,
+    updateRecipesFlag, type, setRecipesCategories, setRecipesResults]);
 
   if (!recipesCategories || (!recipesResults && isLoading) || isLoading) {
     return <Loading />;

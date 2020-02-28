@@ -26,32 +26,31 @@ function RecipeDetails({ location: { pathname } }) {
   const searchById = useCallback(async (id) => {
     let details = await fetch(`https://www.the${type}db.com/api/json/v1/1/lookup.php?i=${id}`)
       .then((data) => data.json());
+    let getRecommendations;
     if (type === 'meal') {
       details = details.meals;
-      const getRecommendations = await getRandomRecipes('cocktail');
-      setRecipeRecommendation(getRecommendations);
+      getRecommendations = await getRandomRecipes('cocktail');
     } else {
       details = details.drinks;
-      const getRecommendations = await getRandomRecipes('meal');
-      setRecipeRecommendation(getRecommendations);
+      getRecommendations = await getRandomRecipes('meal');
     }
+    setRecipeRecommendation(getRecommendations);
+
     return details[0];
   }, [setRecipeRecommendation, type]);
 
-  useEffect(() => {
-    async function getDetails() {
-      setLoading(true);
-      const parameter = pathname.split('/');
-      const id = parameter[3];
-      const details = await searchById(id);
-      setRecipeDetails(details);
-    }
-    getDetails();
-  }, [pathname, setRecipeDetails, searchById]);
+  const getDetails = useCallback(async () => {
+    setLoading(true);
+    const parameter = pathname.split('/');
+    const id = parameter[3];
+    const details = await searchById(id);
+    setRecipeDetails(details);
+  }, [pathname, searchById, setRecipeDetails]);
 
   useEffect(() => {
+    getDetails();
     setLoading(false);
-  }, [recipeDetails]);
+  }, [getDetails]);
 
   if (!recipeDetails || isLoading) {
     return (

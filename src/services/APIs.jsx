@@ -35,7 +35,7 @@ export const getRandomRecipes = (type) => {
 };
 
 
-export const searchByEndpoint = async (type, parameter, setRecipesResults, searchType) => {
+export const searchByEndpoint = async (type, parameter, searchType) => {
   const recipesResults = [];
   const endpoints = {
     ingredients: `https://www.the${type}db.com/api/json/v1/1/filter.php?i=${parameter}`,
@@ -51,7 +51,8 @@ export const searchByEndpoint = async (type, parameter, setRecipesResults, searc
     });
   if (recipes !== undefined) {
     recipesResults.push(recipes);
-    return multipleRecipes(recipesResults, type, setRecipesResults);
+    const getRecipes = await multipleRecipes(recipesResults, type);
+    return getRecipes;
   }
   return null;
 };
@@ -71,18 +72,6 @@ export const getRecipeCategories = async (type) => {
     .filter((c, index) => index < 5)
     .map(({ strCategory }) => strCategory);
   return categories;
-};
-
-export const searchById = async (type, id, setRecipeRecommendation) => {
-  let details = await fetch(`https://www.the${type}db.com/api/json/v1/1/lookup.php?i=${id}`).then((data) => data.json());
-  if (type === 'meal') {
-    details = details.meals;
-    setRecipeRecommendation(getRandomRecipes('cocktail', 6));
-  } else {
-    details = details.drinks;
-    setRecipeRecommendation(getRandomRecipes('meal', 6));
-  }
-  return details[0];
 };
 
 export const getIngredientImage = (type, endPoint) => {

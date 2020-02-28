@@ -37,52 +37,63 @@ export function RenderRadioButtons(props) {
   );
 }
 
+function Bar(props) {
+  const { SearchFlag, SearchValue, CheckedRadio } = props;
+
+  function searchInputValidation(event) {
+    SearchFlag(true);
+    return SearchValue(event.value);
+  }
+
+  function radioButtonValidation(event) {
+    SearchFlag(true);
+    return CheckedRadio(event.target.className);
+  }
+
+  return (
+    <form className="search-bar-form">
+      <input
+        data-testid="search-input"
+        className="search-input"
+        type="text"
+        onBlur={(e) => searchInputValidation(e.target)}
+      />
+      <fieldset id="row-radio-buttons" className="row-radio-buttons">
+        <div className="fieldset-flex">
+          <RenderRadioButtons onClick={(e) => radioButtonValidation(e)} />
+        </div>
+      </fieldset>
+    </form>
+  );
+}
+
 export default function SearchBar() {
   const [searchValue, setSearchValue] = useState('');
   const [searchFlag, setSearchFlag] = useState(false);
   const [checkedRadio, setCheckedRadio] = useState('');
-
-  const {
-    type,
-    setRecipesResults,
-  } = useContext(AppContext);
-
+  const { type, setRecipesResults } = useContext(AppContext);
   useEffect(() => {
-    if (searchValue !== '' && checkedRadio !== '' && searchFlag === true) {
+    async function getSearchByEndpoint() {
       const endpoints = {
         'radio-ingredient': 'ingredients',
         'radio-name': 'name',
         'radio-firstletter': 'firstLetter',
       };
+      const searchedRecipes = await searchByEndpoint(type, searchValue, endpoints[checkedRadio]);
+      setRecipesResults(searchedRecipes);
+    }
+    if (searchValue !== '' && checkedRadio !== '' && searchFlag === true) {
       if (checkedRadio === 'radio-firstletter' && searchValue.length > 1) {
         return alert('Digite apenas 1 (uma) letra para buscar!');
       }
-      searchByEndpoint(type, searchValue, setRecipesResults, endpoints[checkedRadio]);
+      getSearchByEndpoint();
       setSearchFlag(false);
     }
     return setSearchFlag(false);
   }, [type, setRecipesResults, searchFlag, searchValue, checkedRadio]);
-
-  function searchInputValidation(event) {
-    setSearchFlag(true);
-    return setSearchValue(event.value);
-  }
-
-  function radioButtonValidation(event) {
-    setSearchFlag(true);
-    return setCheckedRadio(event.target.className);
-  }
-
   return (
     <div className="search-bar">
-      <form className="search-bar-form">
-        <input data-testid="search-input" className="search-input" type="text" onBlur={(e) => searchInputValidation(e.target)} />
-        <fieldset id="row-radio-buttons" className="row-radio-buttons">
-          <div className="fieldset-flex">
-            <RenderRadioButtons onClick={(e) => radioButtonValidation(e)} />
-          </div>
-        </fieldset>
-      </form>
+      <Bar SearchFlag={setSearchFlag} SearchValue={setSearchValue} CheckedRadio={setCheckedRadio} />
     </div>
   );
 }
