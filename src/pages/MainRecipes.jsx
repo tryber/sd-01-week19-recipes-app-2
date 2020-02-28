@@ -9,9 +9,8 @@ import Footer from '../components/Footer';
 import '../style/MainRecipes.css';
 
 function MainRecipes({ location: { pathname } }) {
+  const [recipesResults, setRecipesResults] = useState(undefined);
   const {
-    recipesResults,
-    setRecipesResults,
     recipesCategories,
     setRecipesCategories,
     categoryFilter,
