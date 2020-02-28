@@ -1,4 +1,4 @@
-const multipleRecipes = async (recipesResults, type, setRecipes) => {
+const multipleRecipes = async (recipesResults, type) => {
   let recipesArray = [];
   await Promise.all(recipesResults)
     .then((recipes) => {
@@ -12,11 +12,11 @@ const multipleRecipes = async (recipesResults, type, setRecipes) => {
     });
   recipesArray = recipesArray.flat();
   const flattenedArray = recipesArray.filter((recipe) => !!recipe === true);
-  setRecipes(flattenedArray);
+  return flattenedArray;
   // return localStorage.setItem('recipes', JSON.stringify(cleanArray));
 };
 
-export const getRandomRecipes = (type, setRecipes) => {
+export const getRandomRecipes = (type) => {
   let kind = '';
   const randomRecipes = [];
   const recipesNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -31,7 +31,7 @@ export const getRandomRecipes = (type, setRecipes) => {
       .then((data) => data.json());
     randomRecipes.push(response);
   });
-  return multipleRecipes(randomRecipes, type, setRecipes);
+  return multipleRecipes(randomRecipes, type);
 };
 
 
@@ -56,16 +56,9 @@ export const searchByEndpoint = async (type, parameter, setRecipesResults, searc
   return null;
 };
 
-export const getRecipeCategories = async (type, setCategories) => {
+export const getRecipeCategories = async (type) => {
   const categoriesList = [];
-  if (type === 'explorar') {
-    await fetch('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list')
-      .then((data) => data.json())
-      .then((categories) => categoriesList.push(categories.drinks));
-    await fetch('https://www.themealdb.com/api/json/v1/1/list.php?c=list')
-      .then((data) => data.json())
-      .then((categories) => categoriesList.push(categories.meals));
-  } else if (type === 'receitas/comidas') {
+  if (type === 'meal') {
     await fetch('https://www.themealdb.com/api/json/v1/1/list.php?c=list')
       .then((data) => data.json())
       .then((categories) => categoriesList.push(categories.meals));
@@ -77,19 +70,19 @@ export const getRecipeCategories = async (type, setCategories) => {
   const categories = categoriesList.flat()
     .filter((c, index) => index < 5)
     .map(({ strCategory }) => strCategory);
-  setCategories(categories);
+  return categories;
 };
 
-export const searchById = async (type, id, setRecipeDetails, setRecipeRecommendation) => {
+export const searchById = async (type, id, setRecipeRecommendation) => {
   let details = await fetch(`https://www.the${type}db.com/api/json/v1/1/lookup.php?i=${id}`).then((data) => data.json());
   if (type === 'meal') {
-    getRandomRecipes('cocktail', 6, setRecipeRecommendation);
     details = details.meals;
+    setRecipeRecommendation(getRandomRecipes('cocktail', 6));
   } else {
-    getRandomRecipes('meal', 6, setRecipeRecommendation);
     details = details.drinks;
+    setRecipeRecommendation(getRandomRecipes('meal', 6));
   }
-  return setRecipeDetails(details[0]);
+  return details[0];
 };
 
 export const getIngredientImage = (type, endPoint) => {

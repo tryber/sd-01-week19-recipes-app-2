@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { AppContext } from '../context/AppContext';
 import Footer from '../components/Footer';
 import '../style/ExplorarReceitas.css';
 
 function generateButton(number, pathname, type, title) {
   return (
-    <button className={`btnreceitas ${number}`}>
+    <button type="button" className={`btnreceitas ${number}`}>
       <Link className="link" to={`/${pathname}/${type}`}>
         {title}
       </Link>
@@ -28,7 +29,8 @@ function isComidasOrBebidas(pathname) {
         {generateButton('three', pathname, 'random', title.title3)}
       </div>
     );
-  } return (
+  }
+  return (
     <div className="content-btn-receitas">
       {generateButton('one', pathname, 'ingredientes', title.title1)}
       {generateButton('two', pathname, 'local', title.title2)}
@@ -37,6 +39,14 @@ function isComidasOrBebidas(pathname) {
 }
 
 function ExplorarReceitas({ location: { pathname } }) {
+  const { setTitle } = useContext(AppContext);
+
+  if (pathname === '/explorar/comidas') {
+    setTitle('Explorar Comidas');
+  } else {
+    setTitle('Explorar Bebidas');
+  }
+
   return (
     <div>
       {isComidasOrBebidas(pathname)}

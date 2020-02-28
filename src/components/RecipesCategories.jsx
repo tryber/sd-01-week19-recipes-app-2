@@ -29,7 +29,7 @@ function RecipesCategories() {
         All
       </button>
 
-      {recipesCategories.map((category) => (
+      {recipesCategories && recipesCategories.map((category) => (
         <button
           type="button"
           data-testid={`${category}-category-filter`}

@@ -1,6 +1,8 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, {
+  useState, useContext, useEffect, useCallback,
+} from 'react';
 import PropTypes from 'prop-types';
-import { searchById } from '../services/APIs';
+import { getRandomRecipes } from '../services/APIs';
 import { AppContext } from '../context/AppContext';
 import RecipeDetailsHeader from '../components/RecipeDetailsHeader';
 import RecipeDetailsIngredients from '../components/RecipeDetailsIngredients';
@@ -14,15 +16,38 @@ function RecipeDetails({ location: { pathname } }) {
     recipeDetails,
     setRecipeDetails,
     setRecipeRecommendation,
+    type,
+    setDisplayHeader,
   } = useContext(AppContext);
   const [isLoading, setLoading] = useState(true);
 
+  setDisplayHeader(false);
+
+  const searchById = useCallback(async (id) => {
+    let details = await fetch(`https://www.the${type}db.com/api/json/v1/1/lookup.php?i=${id}`)
+      .then((data) => data.json());
+    if (type === 'meal') {
+      details = details.meals;
+      const getRecommendations = await getRandomRecipes('cocktail');
+      setRecipeRecommendation(getRecommendations);
+    } else {
+      details = details.drinks;
+      const getRecommendations = await getRandomRecipes('meal');
+      setRecipeRecommendation(getRecommendations);
+    }
+    return details[0];
+  }, [setRecipeRecommendation, type]);
+
   useEffect(() => {
-    setLoading(true);
-    const parameter = pathname.split('/');
-    if (parameter[2] === 'comida') searchById('meal', parameter[3], setRecipeDetails, setRecipeRecommendation);
-    else searchById('cocktail', parameter[3], setRecipeDetails, setRecipeRecommendation);
-  }, [pathname, setRecipeDetails, setRecipeRecommendation]);
+    async function getDetails() {
+      setLoading(true);
+      const parameter = pathname.split('/');
+      const id = parameter[3];
+      const details = await searchById(id);
+      setRecipeDetails(details);
+    }
+    getDetails();
+  }, [pathname, setRecipeDetails, searchById]);
 
   useEffect(() => {
     setLoading(false);

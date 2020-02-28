@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
+import { AppContext } from '../context/AppContext';
 import '../style/Explorer.css';
 
 function Explorar() {
+  const { setTitle } = useContext(AppContext);
+  setTitle('Explorar');
+
   return (
     <div>
       <div className="content-btn">

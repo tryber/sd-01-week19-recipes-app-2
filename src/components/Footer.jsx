@@ -1,16 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import explorar from '../img/explorar.svg';
 import comidas from '../img/comidas.svg';
 import bebidas from '../img/bebidas.svg';
-import { AppContext } from '../context/AppContext';
 import '../style/Footer.css';
 
-export function generateLiFooter(link, img, setType) {
+export function generateLiFooter(link, img) {
   return (
     <li>
       <Link to={`/${link}`}>
-        <button type="button" onClick={() => setType(`${link}`)}>
+        <button type="button">
           <img className="img-footer" src={img} alt={img} />
         </button>
       </Link>
@@ -19,13 +18,12 @@ export function generateLiFooter(link, img, setType) {
 }
 
 export default function Footer() {
-  const { setType } = useContext(AppContext);
   return (
     <div className="content-footer">
       <ul className="footer">
-        {generateLiFooter('receitas/bebidas', bebidas, () => setType('cocktail'))}
+        {generateLiFooter('receitas/bebidas', bebidas)}
         {generateLiFooter('explorar', explorar)}
-        {generateLiFooter('receitas/comidas', comidas, () => setType('meal'))}
+        {generateLiFooter('receitas/comidas', comidas)}
       </ul>
     </div>
   );

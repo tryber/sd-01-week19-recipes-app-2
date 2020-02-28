@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-// import Header from '../components/Header';
+import { AppContext } from '../context/AppContext';
 import Footer from '../components/Footer';
 import '../style/Profile.css';
 
@@ -9,6 +9,9 @@ function clearStorageEmail() {
 }
 
 function Profile() {
+  const { setTitle } = useContext(AppContext);
+  setTitle('Perfil');
+
   return (
     <div className="profile">
       {/* <Header /> */}
