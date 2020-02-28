@@ -55,6 +55,10 @@ RecipeDetails.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
   }).isRequired,
+  match: PropTypes.shape({
+    bebidacomida: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default RecipeDetails;
