@@ -15,10 +15,10 @@ export default function AppProvider({ children }) {
   const [recipeRecommendation, setRecipeRecommendation] = useState();
 
   // header States
-  const [displayUserIcon, setDisplayUserIcon] = useState(true);
   const [displaySearchIcon, setDisplaySearchIcon] = useState(true);
   const [displaySearchBar, setDisplaySearchBar] = useState(false);
   const [title, setTitle] = useState('Header');
+  const [displayHeader, setDisplayHeader] = useState(true);
   const displaySearchBarToggle = () => setDisplaySearchBar(!displaySearchBar);
 
   const context = {
@@ -28,7 +28,6 @@ export default function AppProvider({ children }) {
     filteredRecipes,
     recipeDetails,
     recipeRecommendation,
-    displayUserIcon,
     displaySearchIcon,
     displaySearchBar,
     title,
@@ -39,10 +38,12 @@ export default function AppProvider({ children }) {
     setFilteredRecipes,
     setRecipeDetails,
     setRecipeRecommendation,
-    setDisplayUserIcon,
     setDisplaySearchIcon,
     setTitle,
+    displayHeader,
+    setDisplayHeader,
   };
+
   return (
     <AppContext.Provider value={context}>
       {children}
